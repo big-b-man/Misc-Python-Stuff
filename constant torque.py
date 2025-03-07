@@ -8,7 +8,7 @@ import time
 #Known bugs: Program fails if there is only one corresponding yz data point for a unique x point
 
 start_time = time.time()
-inputFile = "JGV8-Torque.csv" #Input parameter for CSV file being used for data
+inputFile = "OG-Torque.csv" #Input parameter for CSV file being used for data
 pilotTorque = 41
 
 #loads data from CSV file, column 0 is X data, 1 is Y data, 2 is Z data
