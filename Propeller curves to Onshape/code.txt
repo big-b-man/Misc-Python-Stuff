@@ -851,8 +851,9 @@ export const propLoft = defineFeature(function(context is Context, id is Id, def
                         vector(-0.003059,0.009081) * meter
                     ]];
 
+        //create sketch planes from imported data
         var sketchId = id + "sketch";
-        for (var i = 0; i < 20; i += 1) 
+        for (var i = 0; i < 20; i += 1)
         {
             //define plane offset
             var offsetDistance = offsets[i];
