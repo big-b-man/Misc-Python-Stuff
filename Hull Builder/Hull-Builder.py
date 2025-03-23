@@ -1,12 +1,25 @@
-#Author- Bennett Steers
-#Description- Makes a hull loft from 2 imported CSV files that describe the 2D hull curves
-#imported curves must only contain the positive half of the y points for each profile
-#if the x points are negative, the profile must be mirrored so that they are positive
-#imported CSV's must be arranged with the X values going from lowest to highest value
+#UVSRC Hull Designer Tool
 
-import csv, math,tkinter as tk, numpy as np, matplotlib.pyplot as plt
-from src.LoadAirfoil import LoadAirfoilPrompt, LoadAirfoilNoPrompt
-from tkinter import filedialog
+#Copyright (c) 2025 Bennett Steers
+
+# The UVSRC Hull Designer Tool is free software: you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as published by 
+# the Free Software Foundation, either version 3 of the License, or 
+# (at your option) any later version.
+
+# The UVSRC Hull Designer Tool is is distributed in the hope that it will be
+# useful, but WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General 
+# Public License for more details.
+
+# You should have received a copy of the GNU General Public License along with
+# The UVSRC Hull Designer Tool. If not, see <https://www.gnu.org/licenses/>.
+
+# Description- Makes a hull loft from 2 imported CSV files that describe the 2D hull curves
+
+import tkinter as tk, numpy as np, matplotlib.pyplot as plt
+from src.loadAirfoil import loadAirfoilPrompt, loadAirfoilNoPrompt
+from src.hullSplines import buildSpline
 from scipy.interpolate import CubicSpline
 
 def homeWindow():
@@ -257,42 +270,19 @@ def scalePlot(horizontalXScale, horizontalYScale, verticalXScale, verticalYScale
     
     return horizontalXScale, horizontalYScale, verticalXScale, verticalYScale
 
-def getMax(x,dx,lenMax):
-    root = dx.roots()
-    i = 0
-    goodRoot = False
-    while(goodRoot == False):
-        if root[i] > 0 and root[i] < lenMax:
-            root = root[i]
-            goodRoot = True
-        else:
-            i += 1
-    return float(root)
-
-#YXdata = LoadAirfoilPrompt("Horizontal")
-YXdata = LoadAirfoilNoPrompt("C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Hull Builder/naca16021.csv")
-#YZdata = LoadAirfoilPrompt("Vertical")
-YZdata = LoadAirfoilNoPrompt("C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Hull Builder/ys900.csv")
+#YXdata = loadAirfoilPrompt("Horizontal")
+YXdata = loadAirfoilNoPrompt("C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Hull Builder/naca16021.csv")
+#YZdata = loadAirfoilPrompt("Vertical")
+YZdata = loadAirfoilNoPrompt("C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Hull Builder/ys900.csv")
 
 #create a cubic spline from both the imported CSV files
-horizontalSpline = CubicSpline(YXdata[:,0],YXdata[:,1])
-verticalSpline = CubicSpline(YZdata[:,0],YZdata[:,1])
-
-#calculate the derivative splines
-vertPrime = verticalSpline.derivative()
-horPrime = horizontalSpline.derivative()
+horizontalSpline = buildSpline(YXdata)
+verticalSpline = buildSpline(YZdata)
 
 quit = False
 windowType = "home"
 #hortScale and VertScale are used to scale the graph in the vertical and horizontal direction
 #equal to half the height and width of the boat (distance from neural axis to top of spline)
-vertScale = getMax(verticalSpline,vertPrime,YZdata[-1,0])
-horScale = getMax(horizontalSpline,horPrime,YXdata[-1,0])
-
-horizontalYScale = 1
-horizontalXScale = 1
-verticalYScale = 1
-verticalXScale = 1
 
 constraints = {}
 while(quit == False):
@@ -322,15 +312,5 @@ while(quit == False):
             horizontalXScale, horizontalYScale, verticalXScale, verticalYScale = scalePlot(horizontalXScale, horizontalYScale, verticalXScale, verticalYScale)
             windowType = "home"
             #redefine the cubic splines using the scale factors
-            YXtemp = YXdata.copy()
-            YXtemp[:,0] = YXtemp[:,0]*horizontalXScale
-            YXtemp[:,1] = YXtemp[:,1]*horizontalYScale
-            YZtemp = YZdata.copy()
-            YZtemp[:,0] = YZtemp[:,0]*verticalXScale
-            YZtemp[:,1] = YZtemp[:,1]*verticalYScale
-            horizontalSpline = CubicSpline((YXtemp[:,0]),(YXtemp[:,1]))
-            verticalSpline = CubicSpline((YZtemp[:,0]),(YZtemp[:,1]))
-            vertPrime = verticalSpline.derivative()
-            horPrime = horizontalSpline.derivative()
-            vertScale = getMax(verticalSpline,vertPrime,YZtemp[-1,0])
-            horScale = getMax(horizontalSpline,horPrime,YXtemp[-1,0])
+            horizontalSpline.scale([horizontalXScale,horizontalYScale])
+            verticalSpline.scale([verticalXScale,verticalYScale])
