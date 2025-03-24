@@ -21,6 +21,7 @@
 # file into memory
 
 import typing, tkinter as tk, csv, numpy as np
+from tkinter import filedialog
 
 #Loads the airfoils from a hardcoded file path
 def loadAirfoilNoPrompt(filePath):
