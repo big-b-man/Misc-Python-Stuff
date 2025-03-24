@@ -23,7 +23,7 @@ import numpy as np
 from scipy.interpolate import CubicSpline
 
 # class containing spline info from imported spline
-class buildSpline:
+class hullSpline:
     def __splineRebuild(self, data):
         # gets min and max x points of data
         xMax, xMin = np.max(data[:,0]), np.min(data[:,0])
