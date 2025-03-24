@@ -16,19 +16,25 @@
 # The UVSRC Hull Designer Tool. If not, see <https://www.gnu.org/licenses/>.
 
 # Description- Makes a hull loft from 2 imported CSV files that describe the 2D hull curves
+import traceback
 
-import tkinter as tk, numpy as np
-from src.loadAirfoil import loadAirfoilPrompt, loadAirfoilNoPrompt
-from src.hullSplines import hullSpline
-from src.window import homeWindow
- 
-#XYdata = loadAirfoilPrompt("Horizontal")
-XYdata = loadAirfoilNoPrompt("C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Hull Builder/naca16021.csv")
-#XZdata = loadAirfoilPrompt("Vertical")
-XZdata = loadAirfoilNoPrompt("C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Hull Builder/ys900.csv")
+try: 
+    import tkinter as tk, numpy as np
+    from src.loadAirfoil import loadAirfoilPrompt, loadAirfoilNoPrompt
+    from src.hullSplines import hullSpline
+    from src.window import homeWindow
 
-#create a cubic spline from both the imported CSV files
-horizontalSpline = hullSpline(XYdata)
-verticalSpline = hullSpline(XZdata)
+    XYdata = loadAirfoilPrompt("Horizontal")
+    #XYdata = loadAirfoilNoPrompt("C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Hull Builder/naca16021.csv")
+    XZdata = loadAirfoilPrompt("Vertical")
+    #XZdata = loadAirfoilNoPrompt("C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Hull Builder/ys900.csv")
 
-homeWindow(horizontalSpline, verticalSpline)
+    #create a cubic spline from both the imported CSV files
+    horizontalSpline = hullSpline(XYdata)
+    verticalSpline = hullSpline(XZdata)
+
+    homeWindow(horizontalSpline, verticalSpline)
+except Exception as error:
+    with open('log.txt', 'a') as f:
+        f.write(str(error))
+        f.write(traceback.format_exc())

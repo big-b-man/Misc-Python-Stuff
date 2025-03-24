@@ -29,16 +29,17 @@ class plotPoints2D:
         self.horizontalPoints = []
         self.verticalPoints = []
 
-        self.xScale = canvasWidth/(self.xMax-self.xMin)
-        self.yScale = canvasHeight/horizontalSpline.maxHeight/4
-        self.zScale = canvasHeight/verticalSpline.maxHeight/4
+        #determine how much the hulls should be scale to fit the plots
+        self.xScale = 430/(self.xMax-self.xMin)# current plot area is 420 pixels wide, hence the 420 number
+        self.yScale = 220/(horizontalSpline.maxHeight*2) # current plot area is 220 pixels tall, hence the 220 number
+        self.zScale = 220/(verticalSpline.maxHeight*2) # current plot area is 220 pixels tall, hence the 220 number
 
-        self.scale = min(self.xScale,self.yScale,self.zScale)*0.9
-        rightOffset = (canvasWidth-(self.xMax-self.xMin)*self.scale)/2
+        self.scale = min(self.xScale,self.yScale,self.zScale)# determine which of the 3 scalling factors is the
+                                                             # limiting scale factor
         for i in range (horizontalSpline.count):
-            self.horizontalPoints.append(round(horizontalSpline.data[i][0]*self.scale+rightOffset))
-            self.horizontalPoints.append(round(horizontalSpline.data[i][1]*self.scale+canvasHeight/4))
+            self.horizontalPoints.append(round(horizontalSpline.data[i][0]*self.scale + 50))
+            self.horizontalPoints.append(round(horizontalSpline.data[i][1]*self.scale + 140))
             
         for i in range (verticalSpline.count):    
-            self.verticalPoints.append(round(verticalSpline.data[i][0]*self.scale+rightOffset))
-            self.verticalPoints.append(round(verticalSpline.data[i][1]*self.scale+canvasHeight*3/4))
+            self.verticalPoints.append(round(verticalSpline.data[i][0]*self.scale + 540))
+            self.verticalPoints.append(round(verticalSpline.data[i][1]*self.scale + 140))

@@ -26,58 +26,42 @@ from .plot2DWindow import plotPoints2D
 from .hullSplines import hullSpline
 
 def homeWindow(horizontalSpline: hullSpline, verticalSpline: hullSpline):
-    # The main tkinter window 
+    # The main tkinter window
     window = tk.Tk()
-    
-    # setting the title and  
+    # setting the title
     window.title('UVSRC Hull Designer')
-    
-    # setting the dimensions of the main window 
+    # setting the dimensions of the main window
     window.geometry("1000x800")
+    #frame for submarine plots
+    plotterFrame = ttk.Frame(window)
 
-    plotPoints = plotPoints2D(horizontalSpline,verticalSpline,1000,600)
-    hullPreviewer = tk.Canvas(window, bg = 'white')
-    hullPreviewer.config(width=1000,height=600)
+    plotPoints = plotPoints2D(horizontalSpline,verticalSpline,1000,400)
+    hullPreviewer = tk.Canvas(plotterFrame, bg = 'white')
+    hullPreviewer.config(width=1000,height=400)
+    def setupPlot():
+        hullPreviewer.create_line((50,30,50,250,480,250), fill = 'grey', width= 2)
+        hullPreviewer.create_line((540,30,540,250,970,250), fill = 'grey', width= 2)
+    
+    setupPlot()
     hullPreviewer.create_line(plotPoints.horizontalPoints, fill = 'black', width = 3, smooth= True)
     hullPreviewer.create_line(plotPoints.verticalPoints, fill = 'black', width = 3, smooth= True)
     hullPreviewer.pack()
+    plotterFrame.pack()
 
     #functions for button functionality
     def constraintAction():
-        window.quit()
-        window.destroy()
-
-    def plot2DAction():
         print("TODO: Add action")
 
     def scaleAction():
-            scaleWindow = tk.Tk()
-            
-            # setting the title and  
-            scaleWindow.title('Scale Hull')
-            
-            # setting the dimensions of window 
-            scaleWindow.geometry("400x300")
-        
-            def quitActionScale():
-                 scaleWindow.quit()
-                 scaleWindow.destroy()
-
-            testButton=ttk.Button(scaleWindow,text = 'quit', command = quitActionScale)
-            testButton.pack()
-            scaleWindow.protocol("WM_DELETE_WINDOW", quitActionScale)  # To handle window close
-            scaleWindow.mainloop()
+        print("TODO: Add action")
 
     def quitAction():
         window.quit()
         window.destroy()
 
-
     #buttons to go to separate screens
     const_window_button=ttk.Button(window,text = 'Constraints', command = constraintAction)
     const_window_button.pack()
-    plot2D_button=ttk.Button(window,text = 'Plot Hull 2D', command = plot2DAction)
-    plot2D_button.pack()
     scale_button=ttk.Button(window,text = 'Scale Hull', command = scaleAction)
     scale_button.pack()
     quit_button=ttk.Button(window,text = 'Quit', command = quitAction)
