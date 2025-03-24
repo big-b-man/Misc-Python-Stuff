@@ -1,0 +1,22 @@
+                    ]];
+
+        //create sketch planes from imported data
+        var sketchId = id + "sketch";
+        for (var i = 0; i < 20; i += 1)
+        {
+            //define plane offset
+            var offsetDistance = offsets[i];
+            sketchId = sketchId + i;
+            // Define the offset plane (offset along Z-axis)
+            const offsetPlane = plane(vector(0*inch, 0*inch, offsetDistance), vector(0, 0, 1)*inch);
+            var sketch1 = newSketchOnPlane(context, sketchId, { "sketchPlane" : offsetPlane });
+            //sketch some stuff here
+            
+            skFitSpline(sketch1, "spline1", {
+                    "points" : points[i]
+            });
+        
+            // Finalize the sketch
+            skSolve(sketch1);
+        }
+    });
