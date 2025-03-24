@@ -17,12 +17,11 @@
 
 # Description- Makes a hull loft from 2 imported CSV files that describe the 2D hull curves
 
-import tkinter as tk, numpy as np, matplotlib.pyplot as plt, os
+import tkinter as tk, numpy as np
 from src.loadAirfoil import loadAirfoilPrompt, loadAirfoilNoPrompt
 from src.hullSplines import hullSpline
 from src.window import homeWindow
-from scipy.interpolate import CubicSpline
-
+ 
 #XYdata = loadAirfoilPrompt("Horizontal")
 XYdata = loadAirfoilNoPrompt("C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Hull Builder/naca16021.csv")
 #XZdata = loadAirfoilPrompt("Vertical")

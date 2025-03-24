@@ -20,53 +20,40 @@
 # Description: class used to build and modify hull splines
 
 import numpy as np
-from scipy.interpolate import CubicSpline
 
 # class containing spline info from imported spline
 class hullSpline:
-    def __splineRebuild(self, data):
-        # gets min and max x points of data
-        xMax, xMin = np.max(data[:,0]), np.min(data[:,0])
-        # creates a cubic spline from the data
-        spline = CubicSpline(data[:,0],data[:,1])
-
-        #calculates the derivative of the spline to get the max height
-        dx = spline.derivative()
-        # if cubic spline has several roots, finds root with bounds of 
-        # xMin and xMax
-        for root in dx.roots():
-            if xMin <= root and root <= xMax:
-                heightMaxLocation = root
-                break
-        maxHeight = spline(heightMaxLocation)
-        return (xMax, xMin, spline, maxHeight)
-    
     def __init__(self, data: np.ndarray):
         # copies data into object
         self.data = data
         #initialize spline
-        self.xMax, self.xMin, self.spline, self.maxHeight = self.__splineRebuild(self.data)
+        self.xMax, self.xMin = np.max(self.data[:,0]), np.min(self.data[:,0])
+        self.maxHeight = np.max(self.data[:,1])
+        self.count = len(data)
 
     #scales inputted splines
-    def scale(self, scale: float | list, axis: str= "all"):
+    def scale(self, scale: float | list | int, axis: str= "all"):
         match axis:
             case "all":
-                if type(scale) != list:
+                if not isinstance(scale, list):
                     raise TypeError("scale value is not a list")
                 if len(scale) != 2:
                     raise NameError("Invalid number of arguments in scale list")
                 self.data[:,0] = self.data[:,0] * scale[0]
                 self.data[:,1] = self.data[:,1] * scale[1]
-                self.xMax, self.xMin, self.spline, self.maxHeight = self.__splineRebuild(self.data)
+                self.xMax = self.xMax * scale[0]
+                self.xMin = self.xMin * scale[0]
+                self.maxHeight = self.maxHeight *scale[1]
             case "horizontal":
-                if type(scale) != float:
-                    raise TypeError("scale value is not a float")
+                if not isinstance(scale, (int, float)):
+                    raise TypeError("scale value is not a float or int")
                 self.data[:,0] = self.data[:,0] * scale
-                self.xMax, self.xMin, self.spline, self.maxHeight = self.__splineRebuild(self.data)
+                self.xMax = self.xMax * scale
+                self.xMin = self.xMin * scale
             case "vertical":
-                if type(scale) != float:
-                    raise TypeError("scale value is not a float")
+                if not isinstance(scale, (int, float)):
+                    raise TypeError("scale value is not a float or int")
                 self.data[:,1] = self.data[:,1] * scale
-                self.xMax, self.xMin, self.spline, self.maxHeight = self.__splineRebuild(self.data)
+                self.maxHeight = self.maxHeight *scale
             case default:
                 raise NameError("Invalid axis name")

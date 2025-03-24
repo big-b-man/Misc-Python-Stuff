@@ -31,17 +31,7 @@ def loadAirfoilNoPrompt(filePath):
         # Insert First two columns into list
         data = [[float(x) for x in row[:2]] for row in reader]
     
-    #Data preprocessing: Remove negative y values
-    data = [item for item in data if item[1] >= 0]
-
-    #Data preprocessing: Sort list by ascending x values
-    #x values need to be ascending to avoid cubic spline interpolation errors
-    data = sorted(data, key=lambda x: x[0])
-
-    #convert to numpy arrays, delete repeat values
-    data = np.unique(np.array(data), axis=0)
-    
-    return data
+    return np.array(data)
 
 # prompts the user for a file using the tkinter file dialog box, then passes
 # that file path to LoadAirfoilNoPrompt()

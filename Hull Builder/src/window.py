@@ -24,23 +24,23 @@ import tkinter as tk
 from tkinter import ttk
 from .plot2DWindow import plotPoints2D
 from .hullSplines import hullSpline
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import matplotlib.pyplot as plt
 
 def homeWindow(horizontalSpline: hullSpline, verticalSpline: hullSpline):
     # The main tkinter window 
     window = tk.Tk()
-    frmMain = tk.Frame(window)
     
     # setting the title and  
     window.title('UVSRC Hull Designer')
     
-    # setting the dimensions of
-    # the main window 
+    # setting the dimensions of the main window 
     window.geometry("1000x800")
-    
-    #variable for storing sub menu which we will be going to
-    nextWindow = "home"
+
+    plotPoints = plotPoints2D(horizontalSpline,verticalSpline,1000,600)
+    hullPreviewer = tk.Canvas(window, bg = 'white')
+    hullPreviewer.config(width=1000,height=600)
+    hullPreviewer.create_line(plotPoints.horizontalPoints, fill = 'black', width = 3, smooth= True)
+    hullPreviewer.create_line(plotPoints.verticalPoints, fill = 'black', width = 3, smooth= True)
+    hullPreviewer.pack()
 
     #functions for button functionality
     def constraintAction():
@@ -48,38 +48,40 @@ def homeWindow(horizontalSpline: hullSpline, verticalSpline: hullSpline):
         window.destroy()
 
     def plot2DAction():
-        window.quit()
-        window.destroy()
-
+        print("TODO: Add action")
 
     def scaleAction():
-        window.quit()
-        window.destroy()
+            scaleWindow = tk.Tk()
+            
+            # setting the title and  
+            scaleWindow.title('Scale Hull')
+            
+            # setting the dimensions of window 
+            scaleWindow.geometry("400x300")
+        
+            def quitActionScale():
+                 scaleWindow.quit()
+                 scaleWindow.destroy()
 
+            testButton=ttk.Button(scaleWindow,text = 'quit', command = quitActionScale)
+            testButton.pack()
+            scaleWindow.protocol("WM_DELETE_WINDOW", quitActionScale)  # To handle window close
+            scaleWindow.mainloop()
 
     def quitAction():
         window.quit()
         window.destroy()
 
 
-    plotPoints = plotPoints2D(horizontalSpline,verticalSpline,1000,600)
-    hullPreviewer = tk.Canvas(window, bg = 'white')
-    hullPreviewer.config(width=1000,height=600)
-    hullPreviewer.create_line(plotPoints.horizontalPoints, fill = 'black', width = 3, smooth= True)
-    hullPreviewer.create_line(plotPoints.horizontalPointsNegative, fill = 'black', width = 3, smooth= True)
-    hullPreviewer.create_line(plotPoints.verticalPoints, fill = 'black', width = 3, smooth= True)
-    hullPreviewer.create_line(plotPoints.verticalPointsNegative, fill = 'black', width = 3, smooth= True)
-    hullPreviewer.pack()
-
     #buttons to go to separate screens
     const_window_button=ttk.Button(window,text = 'Constraints', command = constraintAction)
     const_window_button.pack()
     plot2D_button=ttk.Button(window,text = 'Plot Hull 2D', command = plot2DAction)
     plot2D_button.pack()
-    quit_button=ttk.Button(window,text = 'Quit', command = quitAction)
-    quit_button.pack()
     scale_button=ttk.Button(window,text = 'Scale Hull', command = scaleAction)
     scale_button.pack()
+    quit_button=ttk.Button(window,text = 'Quit', command = quitAction)
+    quit_button.pack()
 
     window.protocol("WM_DELETE_WINDOW", quitAction)  # To handle window close
 
