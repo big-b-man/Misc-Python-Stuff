@@ -1,0 +1,9 @@
+[Errno 2] No such file or directory: ''Traceback (most recent call last):
+  File "c:\Users\benne\OneDrive\Documents\GitHub\Misc-Python-Stuff\Hull Builder\Hull-Builder.py", line 27, in <module>
+    XYdata = loadAirfoilPrompt("Horizontal")
+  File "c:\Users\benne\OneDrive\Documents\GitHub\Misc-Python-Stuff\Hull Builder\src\loadAirfoil.py", line 39, in loadAirfoilPrompt
+    return loadAirfoilNoPrompt(tk.filedialog.askopenfilename(title= "Select" + curveName + "Profile", filetypes=[('Comma Separated Values', '*.csv')]))
+  File "c:\Users\benne\OneDrive\Documents\GitHub\Misc-Python-Stuff\Hull Builder\src\loadAirfoil.py", line 29, in loadAirfoilNoPrompt
+    with open(filePath, 'r') as file:
+         ~~~~^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: ''

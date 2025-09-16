@@ -34,6 +34,7 @@ try:
     verticalSpline = hullSpline(XZdata)
 
     homeWindow(horizontalSpline, verticalSpline)
+
 except Exception as error:
     with open('log.txt', 'a') as f:
         f.write(str(error))

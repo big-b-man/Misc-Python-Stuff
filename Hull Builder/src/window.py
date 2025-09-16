@@ -34,6 +34,10 @@ def homeWindow(horizontalSpline: hullSpline, verticalSpline: hullSpline):
     window.geometry("1000x800")
     #frame for submarine plots
     plotterFrame = ttk.Frame(window)
+    optionsFrame = ttk.Frame(window)
+    constraintFrame =ttk.Frame(optionsFrame)
+    scaleFrame = ttk.Frame(optionsFrame)
+    analysisFrame = ttk.Frame(optionsFrame)
 
     plotPoints = plotPoints2D(horizontalSpline,verticalSpline,1000,400)
     hullPreviewer = tk.Canvas(plotterFrame, bg = 'white')
@@ -60,12 +64,14 @@ def homeWindow(horizontalSpline: hullSpline, verticalSpline: hullSpline):
         window.destroy()
 
     #buttons to go to separate screens
-    const_window_button=ttk.Button(window,text = 'Constraints', command = constraintAction)
+    const_window_button=ttk.Button(optionsFrame,text = 'Constraints', command = constraintAction)
+    scale_button=ttk.Button(optionsFrame,text = 'Scale Hull', command = scaleAction)
+    quit_button=ttk.Button(optionsFrame,text = 'Quit', command = quitAction)
+    
     const_window_button.pack()
-    scale_button=ttk.Button(window,text = 'Scale Hull', command = scaleAction)
     scale_button.pack()
-    quit_button=ttk.Button(window,text = 'Quit', command = quitAction)
     quit_button.pack()
+    optionsFrame.pack()
 
     window.protocol("WM_DELETE_WINDOW", quitAction)  # To handle window close
 

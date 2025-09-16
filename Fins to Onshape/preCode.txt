@@ -1,0 +1,9 @@
+FeatureScript 2599;
+import(path : "onshape/std/common.fs", version : "2599.0");
+
+//Name of feature so we can select it in the Part Studio
+annotation { "Feature Type Name" : "Prop Loft" }
+export const propLoft = defineFeature(function(context is Context, id is Id, definition is map)
+    precondition{}
+    {
+        const offsets = [
