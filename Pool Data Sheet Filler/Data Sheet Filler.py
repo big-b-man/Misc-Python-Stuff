@@ -1,4 +1,4 @@
-import fitz
+import pymupdf
 import pandas as pd
 
 #General Style Notes: 12 Point font, offset 6 point from base of cell
@@ -50,7 +50,7 @@ def writedoc(doc, healthData):
     for page in doc:
         page.insert_text([0,12], "Hello World!", fontsize=12, color=None, overlay=True)
 
-doc = fitz.open("Pool-construction-permit-application-form.pdf")
+doc = pymupdf.open("Pool-construction-permit-application-form.pdf")
 excelData = pd.read_excel("Test Sheet.xlsx",sheet_name="Pool Data For Export", header=None)
 print ("Excel Data read:\n",excelData)
 writedoc(doc,excelData)
