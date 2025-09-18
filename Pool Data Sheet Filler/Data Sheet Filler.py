@@ -3,25 +3,28 @@
 # Copyright (C) 2025 Bennett Steers
 #
 # This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License version 3 as
-# published by the Free Software Foundation.
-#
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+# 
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
+# GNU Affero General Public License for more details.
+# 
+# You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import pymupdf
 import pandas as pd
 import os
+from dataclasses import dataclass
 
 #General Style Notes: 12 Point font, offset 6 point from base of cell
 
 ExcelPath = "Pool-construction-permit-application-form.pdf"
 FilledPDFPath = "Filled Data Sheet.pdf"
+
 
 def safe_insert_text(page, position, value, **kwargs):
     # Handle NaN/NaT/missing values
