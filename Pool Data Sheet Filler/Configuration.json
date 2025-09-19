@@ -1,0 +1,22 @@
+{
+    "default_settings": {
+        "font_size": 12,
+        "x_offset": 6,
+        "y_offset": 6
+    },
+    "fields": [
+        {
+            "name": "Health Authority",
+            "type": "checkbox"
+            
+        },
+        {
+            "name": "Name of pool",
+            "type": "string",
+            "cell_reference": "B2",
+            "document_page": 2,
+            "document_coordinates": [31,216],
+            "coordinate_units": "points"
+        }
+    ]
+}
