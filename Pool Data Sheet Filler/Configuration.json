@@ -1,22 +1,28 @@
 {
-    "default_settings": {
-        "font_size": 12,
-        "x_offset": 6,
-        "y_offset": 6
+    "default settings": {
+        "font size": 12,
+        "text x offset": 6,
+        "text y offset": 6,
+        "checkbox size": 8
+
     },
     "fields": [
         {
             "name": "Health Authority",
-            "type": "checkbox"
-            
+            "type": "multiChoiceCheckbox",
+            "options": ["Coastal", "Fraser", "Interior", "Island", "Northern"],
+            "document coordinates": [[41,158],[162, 158],[257, 158],[369, 158],[482, 149]],
+            "cell reference": "B2",
+            "document page": 2,
+            "coordinate units": "points"
         },
         {
             "name": "Name of pool",
             "type": "string",
-            "cell_reference": "B2",
-            "document_page": 2,
-            "document_coordinates": [31,216],
-            "coordinate_units": "points"
+            "cell reference": "B2",
+            "document page": 2,
+            "document coordinates": [31,216],
+            "coordinate units": "points"
         }
     ]
 }
