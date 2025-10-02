@@ -1,7 +1,6 @@
 {
     "default settings": {
         "PDF Path": "Pool-construction-permit-application-form.pdf",
-        "Prompt for Filled PDF path": false,
         "Filled PDF Path": "Filled Data Sheet.pdf",
         "Spreadsheet Path": "Test Sheet.xlsx",
         "Spreadsheet Sheet Name": "Pool Data For Export",

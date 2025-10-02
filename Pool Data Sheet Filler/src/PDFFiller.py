@@ -1,6 +1,8 @@
-# Pool Data Sheet Filler Tool
+# PDFFiller.py
 #
 # Copyright (C) 2025 Bennett Steers
+#
+# This file forms part of the PDF Filler Tool
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -20,25 +22,15 @@
 # sept 18: 2
 # sept 26: 1
 # sept 28: 8
+# oct 1: 1.5
 
 import pymupdf
-import pandas as pd
-from datetime import datetime
 import os
-import sys
 import json
-from tkinter import *
-from tkinter import messagebox
-from tkinter import filedialog
 import jsonschema
 import copy
-
-#handles fatal errors from the program
-def fatalError(errorCode, error):
-    errorString = ": "
-    errorString += str(error) 
-    messagebox.showwarning("Error", "Error code " + str(errorCode) + errorString)
-    sys.exit()
+import src.fileIO as IO
+from src.errorHandling import fatalError
 
 # Load Configuration.json which contains default settings and fields in the PDF.
 # Checks the JSON schema using checkConfigSchema()
@@ -77,7 +69,6 @@ def checkDefaultSettings(data):
     schema = {
         "type": "object",
         "required": ["PDF Path",
-                     "Prompt for Filled PDF path",
                      "Filled PDF Path",
                      "Spreadsheet Path",
                      "Spreadsheet Sheet Name",
@@ -88,7 +79,6 @@ def checkDefaultSettings(data):
                      "checkbox line width"],
         "properties": {
         "PDF Path": {"type": "string"},
-        "Prompt for Filled PDF path": {"type": "boolean"},
         "Spreadsheet Path": {"type": "string"},
         "Filled PDF Path": {"type": "string"},
         "Spreadsheet Sheet Name": {"type": "string"},
@@ -341,19 +331,6 @@ def writeString(doc, excelData, defaultSettings, field):
 
     doc[docPage].insert_text(textLocation, str(text), color=None, fontsize=newSettings["font size"], overlay=True)
 
-# reads spreadsheet file and returns as list of lists
-def readExcel(filePath, **kwargs):
-    tempSheet = pd.read_excel(filePath, **kwargs)
-    tempSheet = tempSheet.fillna('')
-    sheet = tempSheet.values.tolist()
-    # pd.values.tolist() converts an excel date to a python date data type
-    # convert back to string to avoid errors
-    for row_index, row in enumerate(sheet):
-        for col_index, cell in enumerate(row):
-            if isinstance(cell, datetime):
-                sheet[row_index][col_index] = cell.strftime("%d-%m-%Y")
-    return sheet
-
 def writedoc(doc, excelData, configuration):
     for field in configuration["fields"]:
         match field["type"]:
@@ -362,18 +339,19 @@ def writedoc(doc, excelData, configuration):
             case "string":
                 writeString(doc, excelData, configuration["default settings"], field)
 
-configuration = parseConfigFile("Configuration.json")
+def run():
+    configuration = parseConfigFile("Configuration.json")
 
-#with open('config1.json', 'w') as json_file:
-#    json.dump(configuration, json_file, indent=4)
+    #with open('config1.json', 'w') as json_file:
+    #    json.dump(configuration, json_file, indent=4)
 
-PDFPath = configuration["default settings"]["PDF Path"]
-FilledPDFPath = configuration["default settings"]["Filled PDF Path"]
-SpreadsheetPath= configuration["default settings"]["Spreadsheet Path"]
-SpreadsheetSheetName = configuration["default settings"]["Spreadsheet Sheet Name"]
-doc = pymupdf.open(PDFPath)
-excelData = readExcel(SpreadsheetPath, sheet_name=SpreadsheetSheetName, header=None)
-writedoc(doc, excelData, configuration)
-doc.save(FilledPDFPath)
-doc.close()
-os.startfile(FilledPDFPath)
+    PDFPath = configuration["default settings"]["PDF Path"]
+    FilledPDFPath = configuration["default settings"]["Filled PDF Path"]
+    SpreadsheetPath= configuration["default settings"]["Spreadsheet Path"]
+    SpreadsheetSheetName = configuration["default settings"]["Spreadsheet Sheet Name"]
+    doc = pymupdf.open(PDFPath)
+    excelData = IO.readExcel(SpreadsheetPath, sheet_name=SpreadsheetSheetName, header=None)
+    writedoc(doc, excelData, configuration)
+    doc.save(FilledPDFPath)
+    doc.close()
+    os.startfile(FilledPDFPath)
