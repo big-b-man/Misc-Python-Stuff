@@ -559,6 +559,152 @@
             "overrides": {
                 "text y offset": 11
             }
+        },
+        {
+            "name": "Bathing Load (Shallow)",
+            "type": "string",
+            "cell reference": "B45",
+            "document page": 3,
+            "document coordinates": [
+                163,
+                552
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Bathing Load (Deep)",
+            "type": "string",
+            "cell reference": "B46",
+            "document page": 3,
+            "document coordinates": [
+                315,
+                552
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Bathing Load (Total)",
+            "type": "string",
+            "cell reference": "B47",
+            "document page": 3,
+            "document coordinates": [
+                469,
+                552
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Pool Basin Color",
+            "type": "string",
+            "cell reference": "B48",
+            "document page": 3,
+            "document coordinates": [
+                157,
+                582
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Complies with Pool Regulation",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Yes",
+                    "document coordinates": [
+                        444,
+                        568
+                    ]
+                },
+                {
+                    "option name": "No",
+                    "document coordinates": [
+                        481,
+                        568
+                    ]
+                }
+            ],
+            "cell reference": "B49",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filters",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Sand",
+                    "document coordinates": [
+                        154,
+                        597
+                    ]
+                },
+                {
+                    "option name": "D.E.",
+                    "document coordinates": [
+                        201,
+                        597
+                    ]
+                },
+                {
+                    "option name": "Pressure",
+                    "document coordinates": [
+                        270,
+                        597
+                    ]
+                },
+                {
+                    "option name": "Vacuum",
+                    "document coordinates": [
+                        338,
+                        597
+                    ]
+                },
+                {
+                    "option name": "Gravity",
+                    "document coordinates": [
+                        398,
+                        597
+                    ]
+                }
+            ],
+            "cell reference": "B50",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "NSF Approved",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Yes",
+                    "document coordinates": [
+                        537,
+                        597
+                    ]
+                },
+                {
+                    "option name": "No",
+                    "document coordinates": [
+                        567,
+                        597
+                    ]
+                }
+            ],
+            "cell reference": "B49",
+            "document page": 3,
+            "coordinate units": "points"
         }
     ]
 }
