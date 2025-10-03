@@ -24,6 +24,7 @@
 # sept 26: 1
 # sept 28: 8
 # oct 1: 1.5
+# oct 3: 2
 
 import pymupdf
 import os
