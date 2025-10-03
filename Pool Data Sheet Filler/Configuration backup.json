@@ -1,0 +1,709 @@
+{
+    "default settings": {
+        "PDF Path": "Pool-construction-permit-application-form.pdf",
+        "Filled PDF Path": "Filled Data Sheet.pdf",
+        "Spreadsheet Path": "Test Sheet.xlsx",
+        "Spreadsheet Sheet Name": "Pool Data For Export",
+        "font size": 12,
+        "text x offset": 6,
+        "text y offset": 6,
+        "checkbox size": 8,
+        "checkbox line width": 3
+    },
+    "fields": [
+        {
+            "name": "Health Authority",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Coastal",
+                    "document coordinates": [
+                        257,
+                        158
+                    ]
+                },
+                {
+                    "option name": "Fraser",
+                    "document coordinates": [
+                        41,
+                        158
+                    ]
+                },
+                {
+                    "option name": "Interior",
+                    "document coordinates": [
+                        162,
+                        158
+                    ]
+                },
+                {
+                    "option name": "Island",
+                    "document coordinates": [
+                        369,
+                        158
+                    ]
+                },
+                {
+                    "option name": "Northern",
+                    "document coordinates": [
+                        482,
+                        158
+                    ]
+                }
+            ],
+            "cell reference": "B2",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Name of pool",
+            "type": "string",
+            "cell reference": "B3",
+            "document page": 2,
+            "document coordinates": [
+                31,
+                216
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Street Adress",
+            "type": "string",
+            "cell reference": "B4",
+            "document page": 2,
+            "document coordinates": [
+                31,
+                245
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Application Date",
+            "type": "string",
+            "cell reference": "B5",
+            "document page": 2,
+            "document coordinates": [
+                405,
+                216
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Contact info: Owner Name",
+            "type": "string",
+            "cell reference": "B7",
+            "document page": 2,
+            "document coordinates": [
+                31,
+                295
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Contact info: Owner Address",
+            "type": "string",
+            "cell reference": "B8",
+            "document page": 2,
+            "document coordinates": [
+                31,
+                322
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Contact info: Owner Phone Number",
+            "type": "string",
+            "cell reference": "B9",
+            "document page": 2,
+            "document coordinates": [
+                31,
+                351
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Contact info: Owner Email",
+            "type": "string",
+            "cell reference": "B10",
+            "document page": 2,
+            "document coordinates": [
+                249,
+                351
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Contact info: Person Applying's Name",
+            "type": "string",
+            "cell reference": "B12",
+            "document page": 2,
+            "document coordinates": [
+                31,
+                402
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Contact info: Person Applying's Address",
+            "type": "string",
+            "cell reference": "B13",
+            "document page": 2,
+            "document coordinates": [
+                31,
+                429
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Contact info: Person Applying's Phone Number",
+            "type": "string",
+            "cell reference": "B14",
+            "document page": 2,
+            "document coordinates": [
+                31,
+                458
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Contact info: Person Applying's Email",
+            "type": "string",
+            "cell reference": "B15",
+            "document page": 2,
+            "document coordinates": [
+                249,
+                458
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "Confirmation of Commitment: Owner's name",
+            "type": "string",
+            "cell reference": "B17",
+            "document page": 2,
+            "document coordinates": [
+                46,
+                493
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text x offset": 0,
+                "text y offset": 2
+            }
+        },
+        {
+            "name": "Confirmation of Commitment: Health Authority",
+            "type": "string",
+            "cell reference": "B18",
+            "document page": 2,
+            "document coordinates": [
+                36,
+                590
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text x offset": 0,
+                "text y offset": 2
+            }
+        },
+        {
+            "name": "Confirmation of Commitment: Date",
+            "type": "string",
+            "cell reference": "B19",
+            "document page": 2,
+            "document coordinates": [
+                376,
+                733
+            ],
+            "coordinate units": "points"
+        },
+        {
+            "name": "General info: Name of Pool",
+            "type": "string",
+            "cell reference": "B21",
+            "document page": 3,
+            "document coordinates": [
+                97,
+                152
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 9
+            }
+        },
+        {
+            "name": "General info: Civic Address",
+            "type": "string",
+            "cell reference": "B22",
+            "document page": 3,
+            "document coordinates": [
+                97,
+                178
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 9
+            }
+        },
+        {
+            "name": "Pool Type",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Public Pool",
+                    "document coordinates": [
+                        180,
+                        193
+                    ]
+                },
+                {
+                    "option name": "Commercial Pool",
+                    "document coordinates": [
+                        282,
+                        193
+                    ]
+                },
+                {
+                    "option name": "Hot Tub",
+                    "document coordinates": [
+                        343,
+                        193
+                    ]
+                },
+                {
+                    "option name": "Spray Pool",
+                    "document coordinates": [
+                        414,
+                        193
+                    ]
+                },
+                {
+                    "option name": "Wading Pool",
+                    "document coordinates": [
+                        497,
+                        193
+                    ]
+                }
+            ],
+            "cell reference": "B23",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Indoor/Outdoor",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Indoor",
+                    "document coordinates": [
+                        561,
+                        193
+                    ]
+                },
+                {
+                    "option name": "Outdoor",
+                    "document coordinates": [
+                        561,
+                        204
+                    ]
+                }
+            ],
+            "cell reference": "B24",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Owner Information: Name",
+            "type": "string",
+            "cell reference": "B26",
+            "document page": 3,
+            "document coordinates": [
+                144,
+                253
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 8
+            }
+        },
+        {
+            "name": "Owner Information: Address",
+            "type": "string",
+            "cell reference": "B27",
+            "document page": 3,
+            "document coordinates": [
+                73,
+                279
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 9
+            }
+        },
+        {
+            "name": "Owner Information: Phone Number",
+            "type": "string",
+            "cell reference": "B28",
+            "document page": 3,
+            "document coordinates": [
+                104,
+                306
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 9
+            }
+        },
+        {
+            "name": "Owner Information: Email",
+            "type": "string",
+            "cell reference": "B29",
+            "document page": 3,
+            "document coordinates": [
+                321,
+                306
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 9
+            }
+        },
+        {
+            "name": "Designer info: Name",
+            "type": "string",
+            "cell reference": "B31",
+            "document page": 3,
+            "document coordinates": [
+                64,
+                357
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 10
+            }
+        },
+        {
+            "name": "Professional Designation",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "PEng",
+                    "document coordinates": [
+                        516,
+                        343
+                    ]
+                },
+                {
+                    "option name": "Arch",
+                    "document coordinates": [
+                        516,
+                        354
+                    ]
+                }
+            ],
+            "cell reference": "B32",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Designer info: Company",
+            "type": "string",
+            "cell reference": "B33",
+            "document page": 3,
+            "document coordinates": [
+                161,
+                383
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 9
+            }
+        },
+        {
+            "name": "Designer info: Address",
+            "type": "string",
+            "cell reference": "B34",
+            "document page": 3,
+            "document coordinates": [
+                73,
+                409
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 9
+            }
+        },
+        {
+            "name": "Designer info: Phone Number",
+            "type": "string",
+            "cell reference": "B35",
+            "document page": 3,
+            "document coordinates": [
+                104,
+                435
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 9
+            }
+        },
+        {
+            "name": "Designer info: Email",
+            "type": "string",
+            "cell reference": "B36",
+            "document page": 3,
+            "document coordinates": [
+                321,
+                435
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 9
+            }
+        },
+        {
+            "name": "Pool Volume (m^3)",
+            "type": "string",
+            "cell reference": "B38",
+            "document page": 3,
+            "document coordinates": [
+                115,
+                491
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Turnover (Hours)",
+            "type": "string",
+            "cell reference": "B39",
+            "document page": 3,
+            "document coordinates": [
+                232,
+                491
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Design Re-circulation Flow Rate: (L/sec)",
+            "type": "string",
+            "cell reference": "B40",
+            "document page": 3,
+            "document coordinates": [
+                468,
+                491
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Pool Area (m^2)",
+            "type": "string",
+            "cell reference": "B41",
+            "document page": 3,
+            "document coordinates": [
+                148,
+                522
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Deck Area (m^2)",
+            "type": "string",
+            "cell reference": "B42",
+            "document page": 3,
+            "document coordinates": [
+                243,
+                522
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Min Water Depth (m)",
+            "type": "string",
+            "cell reference": "B43",
+            "document page": 3,
+            "document coordinates": [
+                420,
+                522
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Max Water Depth (m)",
+            "type": "string",
+            "cell reference": "B44",
+            "document page": 3,
+            "document coordinates": [
+                515,
+                522
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Bathing Load (Shallow)",
+            "type": "string",
+            "cell reference": "B45",
+            "document page": 3,
+            "document coordinates": [
+                163,
+                552
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Bathing Load (Deep)",
+            "type": "string",
+            "cell reference": "B46",
+            "document page": 3,
+            "document coordinates": [
+                315,
+                552
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Bathing Load (Total)",
+            "type": "string",
+            "cell reference": "B47",
+            "document page": 3,
+            "document coordinates": [
+                469,
+                552
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Pool Basin Color",
+            "type": "string",
+            "cell reference": "B48",
+            "document page": 3,
+            "document coordinates": [
+                157,
+                582
+            ],
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 11
+            }
+        },
+        {
+            "name": "Complies with Pool Regulation",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Yes",
+                    "document coordinates": [
+                        444,
+                        568
+                    ]
+                },
+                {
+                    "option name": "No",
+                    "document coordinates": [
+                        481,
+                        568
+                    ]
+                }
+            ],
+            "cell reference": "B49",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filters",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Sand",
+                    "document coordinates": [
+                        154,
+                        597
+                    ]
+                },
+                {
+                    "option name": "D.E.",
+                    "document coordinates": [
+                        201,
+                        597
+                    ]
+                },
+                {
+                    "option name": "Pressure",
+                    "document coordinates": [
+                        270,
+                        597
+                    ]
+                },
+                {
+                    "option name": "Vacuum",
+                    "document coordinates": [
+                        338,
+                        597
+                    ]
+                },
+                {
+                    "option name": "Gravity",
+                    "document coordinates": [
+                        398,
+                        597
+                    ]
+                }
+            ],
+            "cell reference": "B50",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "NSF Approved",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Yes",
+                    "document coordinates": [
+                        537,
+                        597
+                    ]
+                },
+                {
+                    "option name": "No",
+                    "document coordinates": [
+                        567,
+                        597
+                    ]
+                }
+            ],
+            "cell reference": "B49",
+            "document page": 3,
+            "coordinate units": "points"
+        }
+    ]
+}

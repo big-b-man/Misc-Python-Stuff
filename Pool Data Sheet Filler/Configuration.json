@@ -1,7 +1,8 @@
 {
     "default settings": {
-        "PDF Path": "Pool-construction-permit-application-form.pdf",
-        "Filled PDF Path": "Filled Data Sheet.pdf",
+        "PDF Path": "C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Pool Data Sheet Filler/Pool-construction-permit-application-form.pdf",
+        "Filled PDF Path": "C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Pool Data Sheet Filler/Filled Data Sheet.pdf",
+        "Prompt For Save Path": true,
         "Spreadsheet Path": "Test Sheet.xlsx",
         "Spreadsheet Sheet Name": "Pool Data For Export",
         "font size": 12,

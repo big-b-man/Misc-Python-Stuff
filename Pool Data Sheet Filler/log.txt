@@ -1,0 +1,10 @@
+cannot save with zero pagesTraceback (most recent call last):
+  File "c:\Users\benne\OneDrive\Documents\GitHub\Misc-Python-Stuff\Pool Data Sheet Filler\PDF Filler.py", line 37, in <module>
+    PDFFiller.run()
+    ~~~~~~~~~~~~~^^
+  File "c:\Users\benne\OneDrive\Documents\GitHub\Misc-Python-Stuff\Pool Data Sheet Filler\src\PDFFiller.py", line 45, in run
+    doc.save(FilledPDFPath)
+    ~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\benne\AppData\Local\Programs\Python\Python313\Lib\site-packages\pymupdf\__init__.py", line 5602, in save
+    raise ValueError("cannot save with zero pages")
+ValueError: cannot save with zero pages

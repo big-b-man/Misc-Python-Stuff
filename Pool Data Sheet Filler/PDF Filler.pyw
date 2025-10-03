@@ -1,4 +1,4 @@
-# PDF Filler No UI.py
+# PDF Filler.py
 #
 # Copyright (C) 2025 Bennett Steers
 #
@@ -17,12 +17,14 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#Runs the PDF Editor without the user interface using options defined in "configuration.json"
+#Runs the PDF Editor with the user interface
+
 import traceback
 
 try:
-    import src.PDFFiller as PDFFiller
     import os
+    from src.userInterface import *
+    import src.PDFFiller as PDFFiller
 
     # Get the absolute path of the directory containing the current script
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -30,6 +32,8 @@ try:
     # Change the current working directory to the script's directory
     os.chdir(script_dir)
 
+    homeWindow()
+    
     PDFFiller.run()
 
 except Exception as error:
