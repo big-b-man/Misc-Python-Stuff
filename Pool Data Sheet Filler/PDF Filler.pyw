@@ -32,9 +32,9 @@ try:
     # Change the current working directory to the script's directory
     os.chdir(script_dir)
 
-    homeWindow()
-    
-    PDFFiller.run()
+    #Only runs program if the UI subroutine returns TRUE when it is closed
+    if homeWindow():
+        PDFFiller.run()
 
 except Exception as error:
     with open('log.txt', 'w') as f:
