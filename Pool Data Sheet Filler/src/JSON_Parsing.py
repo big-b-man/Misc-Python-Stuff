@@ -192,7 +192,7 @@ def validateString(data):
         fatalError(5, 'document field "'+ str(data["name"]) +'" has invalid schema: ' + str(e.message))
 
 # changes a default setting in the coniguration file and re-saves the file
-def changeDefaultSetting(setting,filepath):
+def changeFilepath(setting,filepath):
     config = parseConfigFile("Configuration.JSON")
     config["default settings"][setting] = filepath
     with open('Configuration.json', 'w') as json_file:
