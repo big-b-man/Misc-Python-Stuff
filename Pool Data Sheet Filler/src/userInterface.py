@@ -22,35 +22,53 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
-from src.JSON_Parsing import *
+from tkinter import PhotoImage
+import src.JSON_Parsing as ParseJSON
 
 def homeWindow():   
+    #Tells the program wether to run the PDF Filler. Used to kill the program if the window is closed
+    runPDFFiller = True
+
     #window root
     root = Tk()
     
-    config = parseConfigFile("configuration.json")
+    config = ParseJSON.parseConfigFile("configuration.json")
 
     promptForSavePathVar = BooleanVar(value=config["default settings"]["Prompt For Save Path"])
 
     def select_PDF_button_command():
         filepath = filedialog.askopenfilename(title="Select PDF file", filetypes= [('Portable Document Format','*.pdf')])
-        changeDefaultSetting("PDF Path",filepath)
+        ParseJSON.changeFilepath("PDF Path",filepath)
 
+
+    #TODO: #1 Sort out closing the file dialogue causing the output path to go blank
     def fill_PDF_button_command():
-        changeDefaultSetting("Prompt For Save Path",promptForSavePathVar.get())
+        ParseJSON.changeFilepath("Prompt For Save Path",promptForSavePathVar.get())
         if promptForSavePathVar.get():
             filepath = filedialog.asksaveasfilename(title="Save PDF as", defaultextension=".pdf", filetypes= [('Portable Document Format','*.pdf')])
-            changeDefaultSetting("Filled PDF Path",filepath)
+            ParseJSON.changeFilepath("Filled PDF Path",filepath)
         root.quit()
         root.destroy()
+
+    def windowClosed():
+        nonlocal runPDFFiller
+        runPDFFiller = False
 
     #window title
     root.title('PDF Filler Tool')
 
     #window size
-    root.geometry("256x512")
+    root.geometry("280x140")
 
     content = ttk.Frame(root)
+
+    #window splash image
+    try:
+        image = PhotoImage(file="config/Splash_Image.png")
+        image_label = ttk.Label(content, image=image)
+    except Exception as e:
+        print(e)
+
     select_PDF_label = ttk.Label(content, text= "Choose PDF to fill      ")
     select_PDF_button = ttk.Button(content, text="Choose File", command= select_PDF_button_command)
 
@@ -59,8 +77,13 @@ def homeWindow():
     Fill_PDF_button = ttk.Button(content, text="Fill PDF", command= fill_PDF_button_command)
 
     content.grid(column=0, row=0)
-    select_PDF_label.grid(column=0, row=0)
-    select_PDF_button.grid(column= 1, row= 0)
-    Fill_PDF_button.grid(column=1, row=1)
-    promptForSavePath.grid(column=1, row =2)
+    image_label.grid(column=0,row=0)
+    select_PDF_label.grid(column=0, row=1)
+    select_PDF_button.grid(column= 1, row= 1)
+    Fill_PDF_button.grid(column=1, row=2)
+    promptForSavePath.grid(column=1, row =3)
+
+    root.protocol("WM_DELETE_WINDOW", windowClosed)
     root.mainloop()
+
+    return runPDFFiller
