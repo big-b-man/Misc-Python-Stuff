@@ -35,7 +35,7 @@ from src.writeDoc import *
 
 #main run context
 def run():
-    configuration = parseConfigFile("Configuration.json")
+    configuration = parseConfigFile("config/Configuration.json")
     PDFPath = configuration["default settings"]["PDF Path"]
     FilledPDFPath = configuration["default settings"]["Filled PDF Path"]
     SpreadsheetPath= configuration["default settings"]["Spreadsheet Path"]

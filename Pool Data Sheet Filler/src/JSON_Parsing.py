@@ -193,7 +193,7 @@ def validateString(data):
 
 # changes a default setting in the coniguration file and re-saves the file
 def changeFilepath(setting,filepath):
-    config = parseConfigFile("Configuration.JSON")
+    config = parseConfigFile("config/Configuration.JSON")
     config["default settings"][setting] = filepath
-    with open('Configuration.json', 'w') as json_file:
+    with open('config/Configuration.json', 'w') as json_file:
         json.dump(config, json_file, indent=4)

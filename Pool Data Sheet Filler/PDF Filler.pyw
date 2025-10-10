@@ -20,6 +20,7 @@
 #Runs the PDF Editor with the user interface
 
 import traceback
+from src.errorHandling import fatalError
 
 try:
     import os
@@ -38,5 +39,5 @@ try:
 
 except Exception as error:
     with open('log.txt', 'w') as f:
-        f.write(str(error))
         f.write(traceback.format_exc())
+    fatalError(999,traceback.format_exc())

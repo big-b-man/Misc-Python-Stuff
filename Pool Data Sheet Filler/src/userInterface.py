@@ -32,27 +32,8 @@ def homeWindow():
     #window root
     root = Tk()
     
-    config = ParseJSON.parseConfigFile("configuration.json")
-
-    promptForSavePathVar = BooleanVar(value=config["default settings"]["Prompt For Save Path"])
-
-    def select_PDF_button_command():
-        filepath = filedialog.askopenfilename(title="Select PDF file", filetypes= [('Portable Document Format','*.pdf')])
-        ParseJSON.changeFilepath("PDF Path",filepath)
-
-
-    #TODO: #1 Sort out closing the file dialogue causing the output path to go blank
-    def fill_PDF_button_command():
-        ParseJSON.changeFilepath("Prompt For Save Path",promptForSavePathVar.get())
-        if promptForSavePathVar.get():
-            filepath = filedialog.asksaveasfilename(title="Save PDF as", defaultextension=".pdf", filetypes= [('Portable Document Format','*.pdf')])
-            ParseJSON.changeFilepath("Filled PDF Path",filepath)
-        root.quit()
-        root.destroy()
-
-    def windowClosed():
-        nonlocal runPDFFiller
-        runPDFFiller = False
+    #get the config file for finding default settings
+    config = ParseJSON.parseConfigFile("config/configuration.json")
 
     #window title
     root.title('PDF Filler Tool')
@@ -63,18 +44,35 @@ def homeWindow():
     content = ttk.Frame(root)
 
     #window splash image
-    try:
-        image = PhotoImage(file="config/Splash_Image.png")
-        image_label = ttk.Label(content, image=image)
-    except Exception as e:
-        print(e)
+    image = PhotoImage(file="config/Splash_Image.png")
+    image_label = ttk.Label(content, image=image)
 
     select_PDF_label = ttk.Label(content, text= "Choose PDF to fill      ")
-    select_PDF_button = ttk.Button(content, text="Choose File", command= select_PDF_button_command)
+
+    promptForSavePathVar = BooleanVar(value=config["default settings"]["Prompt For Save Path"])
+
+    def select_PDF_button_command():
+        filepath = filedialog.askopenfilename(title="Select PDF file", filetypes= [('Portable Document Format','*.pdf')])
+        ParseJSON.changeFilepath("PDF Path",filepath)
+
+    #TODO: #1 Sort out closing the file dialogue causing the output path to go blank
+    def fill_PDF_button_command():
+        ParseJSON.changeFilepath("Prompt For Save Path",promptForSavePathVar.get())
+        if promptForSavePathVar.get():
+            filepath = filedialog.asksaveasfilename(title="Save PDF as", defaultextension=".pdf", filetypes= [('Portable Document Format','*.pdf')])
+            ParseJSON.changeFilepath("Filled PDF Path",filepath)
+        root.quit()
+        root.destroy()
+
+    # Used to stop the PDF Filer from running if the UI window is closed
+    def windowClosed():
+        nonlocal runPDFFiller
+        runPDFFiller = False
+        root.destroy()
 
     promptForSavePath = ttk.Checkbutton(content, text="Promt for save path", variable=promptForSavePathVar, onvalue=True)
-
     Fill_PDF_button = ttk.Button(content, text="Fill PDF", command= fill_PDF_button_command)
+    select_PDF_button = ttk.Button(content, text="Choose File", command= select_PDF_button_command)
 
     content.grid(column=0, row=0)
     image_label.grid(column=0,row=0)
