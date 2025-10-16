@@ -32,6 +32,7 @@ import src.fileIO as IO
 from src.errorHandling import *
 from src.JSON_Parsing import *
 from src.writeDoc import *
+import traceback
 
 #main run context
 def run():
@@ -40,9 +41,22 @@ def run():
     FilledPDFPath = configuration["default settings"]["Filled PDF Path"]
     SpreadsheetPath= configuration["default settings"]["Spreadsheet Path"]
     SpreadsheetSheetName = configuration["default settings"]["Spreadsheet Sheet Name"]
-    doc = pymupdf.open(PDFPath)
+    # Throws error if PDF can't be opened
+    try:
+        doc = pymupdf.open(PDFPath)
+    except Exception as error:
+        with open('log.txt', 'w') as f:
+            f.write(traceback.format_exc())
+        fatalError(12,"Unable to open Source PDF file. Traceback has been written to log file")
+
     excelData = IO.readExcel(SpreadsheetPath, sheet_name=SpreadsheetSheetName, header=None)
     writedoc(doc, excelData, configuration)
-    doc.save(FilledPDFPath)
+    #Throws error if PDF can't be written
+    try:
+        doc.save(FilledPDFPath)
+    except:
+        with open('log.txt', 'w') as f:
+            f.write(traceback.format_exc())
+        fatalError(12,"Unable to save new PDF file. Traceback has been written to log file")
     doc.close()
     os.startfile(FilledPDFPath)
