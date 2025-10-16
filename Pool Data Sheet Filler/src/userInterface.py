@@ -43,23 +43,29 @@ def homeWindow():
 
     content = ttk.Frame(root)
 
-    #window splash image
+    #window variables
     image = PhotoImage(file="config/Splash_Image.png")
     image_label = ttk.Label(content, image=image)
-
     select_PDF_label = ttk.Label(content, text= "Choose PDF to fill      ")
-
     promptForSavePathVar = BooleanVar(value=config["default settings"]["Prompt For Save Path"])
 
     def select_PDF_button_command():
         filepath = filedialog.askopenfilename(title="Select PDF file", filetypes= [('Portable Document Format','*.pdf')])
-        ParseJSON.changeFilepath("PDF Path",filepath)
+        #only change filepath if the filedialog returns a path (Will return nothing if window is cancelled or clsoed)
+        if filepath:
+            ParseJSON.changeFilepath("PDF Path",filepath)
 
     #TODO: #1 Sort out closing the file dialogue causing the output path to go blank
     def fill_PDF_button_command():
+        # Change the configuration json to reflect the current state of the promt for save path checkbox
+        # so it remembers if it was pressed or not when the program is run again
         ParseJSON.changeFilepath("Prompt For Save Path",promptForSavePathVar.get())
+        # Opens file dialogue window if prompt for save path button is pressed
         if promptForSavePathVar.get():
             filepath = filedialog.asksaveasfilename(title="Save PDF as", defaultextension=".pdf", filetypes= [('Portable Document Format','*.pdf')])
+            # return to PDF filler window if file dialogue box is clsoed.
+            if not filepath:
+                return
             ParseJSON.changeFilepath("Filled PDF Path",filepath)
         root.quit()
         root.destroy()
@@ -82,6 +88,7 @@ def homeWindow():
     promptForSavePath.grid(column=1, row =3)
 
     root.protocol("WM_DELETE_WINDOW", windowClosed)
+    
     root.mainloop()
 
     return runPDFFiller
