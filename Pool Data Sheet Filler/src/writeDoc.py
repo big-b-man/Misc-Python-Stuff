@@ -109,6 +109,8 @@ def writeMultiChoiceCheckBox(doc, excelData, defaultSettings, field):
     
     valueCords = selectMultiChoiceCheckBox(doc,excelData,field)
     
+    #TODO: #2 Make this print to the log file since console is disabled
+    #TODO: #3 Throw a warning once the program has finished if certain fields produced errors
     if not isinstance(valueCords, list):
         print("Warning: the following field's text in the excel file does not match " \
         "the available options in configuration.JSON: "+str(field["name"])+"\n" \
