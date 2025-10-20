@@ -197,3 +197,20 @@ def changeFilepath(setting,filepath):
     config["default settings"][setting] = filepath
     with open('config/Configuration.json', 'w') as json_file:
         json.dump(config, json_file, indent=4)
+
+#pulls the JSON file defining the excel maping for translating an excel sheet to the configuration JSON
+def parseExcelMaping(filepath):
+    #load configuration file, throw error if not found
+    try:
+        with open(filepath, 'r') as FILE:
+            data = json.load(FILE)
+    except Exception as error:
+        fatalError(14, 'Error reading Excel maping file: ' + str(error))
+
+    #Verifies that the Configuration.JSON file has the correct schema
+    checkExcelMapingSchema(data)
+
+    return data
+
+def checkExcelMapingSchema(data):
+    return

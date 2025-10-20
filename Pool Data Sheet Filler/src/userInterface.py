@@ -19,55 +19,48 @@
 
 # This file contains functions used for controling the user interface. This file is called when
 
-from tkinter import *
+import tkinter as tk
 from tkinter import ttk
 from tkinter import filedialog
 from tkinter import PhotoImage
 import src.JSON_Parsing as ParseJSON
+import os
 
 def homeWindow():   
-    #Tells the program wether to run the PDF Filler. Used to kill the program if the window is closed
+    # Tells the program wether to run the PDF Filler. Used to kill the program if the window is closed
     runPDFFiller = True
 
-    #window root
-    root = Tk()
+    # window root
+    root = tk.Tk()
     
-    #get the config file for finding default settings
+    # get the config file for finding default settings
     config = ParseJSON.parseConfigFile("config/configuration.json")
 
-    #window title
+    # window title
     root.title('PDF Filler Tool')
 
-    #window size
+    # window size
     root.geometry("280x140")
 
     content = ttk.Frame(root)
 
-    #window variables
+    # window variables
     image = PhotoImage(file="config/Splash_Image.png")
     image_label = ttk.Label(content, image=image)
-    select_PDF_label = ttk.Label(content, text= "Choose PDF to fill      ")
-    promptForSavePathVar = BooleanVar(value=config["default settings"]["Prompt For Save Path"])
+    PDF_save_path_label = ttk.Label(content,text= "PDF Save Path:")
+    PDF_save_path_var = tk.StringVar(content, value=config["default settings"]["Filled PDF Path"])
 
     def select_PDF_button_command():
-        filepath = filedialog.askopenfilename(title="Select PDF file", filetypes= [('Portable Document Format','*.pdf')])
-        #only change filepath if the filedialog returns a path (Will return nothing if window is cancelled or clsoed)
-        if filepath:
-            ParseJSON.changeFilepath("PDF Path",filepath)
+        filepath = filedialog.asksaveasfilename(title="Save PDF as", defaultextension=".pdf", filetypes= [('Portable Document Format','*.pdf')])
+        # return to PDF filler window if file dialogue box is clsoed.
+        if not filepath:
+            return
+        PDF_path_box.delete(0, tk.END)
+        PDF_path_box.insert(0,filepath)
 
-    #TODO: #1 Sort out closing the file dialogue causing the output path to go blank
     def fill_PDF_button_command():
-        # Change the configuration json to reflect the current state of the promt for save path checkbox
-        # so it remembers if it was pressed or not when the program is run again
-        ParseJSON.changeFilepath("Prompt For Save Path",promptForSavePathVar.get())
-        # Opens file dialogue window if prompt for save path button is pressed
-        if promptForSavePathVar.get():
-            filepath = filedialog.asksaveasfilename(title="Save PDF as", defaultextension=".pdf", filetypes= [('Portable Document Format','*.pdf')])
-            # return to PDF filler window if file dialogue box is clsoed.
-            if not filepath:
-                return
-            ParseJSON.changeFilepath("Filled PDF Path",filepath)
-        root.quit()
+        # There is not error checking here, if the path is invalid then the program will do dumb shit
+        ParseJSON.changeFilepath("Filled PDF Path",PDF_path_box.get())
         root.destroy()
 
     # Used to stop the PDF Filer from running if the UI window is closed
@@ -76,19 +69,53 @@ def homeWindow():
         runPDFFiller = False
         root.destroy()
 
-    promptForSavePath = ttk.Checkbutton(content, text="Promt for save path", variable=promptForSavePathVar, onvalue=True)
+    def initSettingsWindow():
+        settingsWindow(config)
+
     Fill_PDF_button = ttk.Button(content, text="Fill PDF", command= fill_PDF_button_command)
     select_PDF_button = ttk.Button(content, text="Choose File", command= select_PDF_button_command)
+    close_button = ttk.Button(content, text="Close", command=windowClosed)
+    PDF_path_box = ttk.Entry(content, textvariable=PDF_save_path_var)
+    PDF_settings_button = ttk.Button(content, text="Settings", comman= initSettingsWindow)
 
     content.grid(column=0, row=0)
-    image_label.grid(column=0,row=0)
-    select_PDF_label.grid(column=0, row=1)
-    select_PDF_button.grid(column= 1, row= 1)
-    Fill_PDF_button.grid(column=1, row=2)
-    promptForSavePath.grid(column=1, row =3)
-
+    image_label.grid(column=0, row=0, rowspan=2)
+    Fill_PDF_button.grid(column=1, row=0)
+    PDF_settings_button.grid(column= 1, row=1)
+    PDF_save_path_label.grid(column=0, row=2)
+    PDF_path_box.grid(column= 0, row=3, columnspan= 2, sticky= tk.EW)
+    select_PDF_button.grid(column= 0, row= 4, sticky=tk.W)
+    close_button.grid(column= 0, row=5, sticky=tk.W)
+    
     root.protocol("WM_DELETE_WINDOW", windowClosed)
     
     root.mainloop()
 
     return runPDFFiller
+
+def settingsWindow(config):
+    # window root
+    settings_root = tk.Tk()
+
+    # window title
+    settings_root.title('PDF Filler Tool')
+
+    # window size
+    settings_root.geometry("280x140")
+
+    settings_content = ttk.Frame(settings_root)
+
+    # Used to stop the PDF Filer from running if the UI window is closed
+    def settingsWindowClosed():
+        settings_root.destroy()
+
+    settings_close_button = ttk.Button(settings_content, text="Close", command= settingsWindowClosed)
+
+    settings_content.grid(column=0, row=0)
+    settings_close_button.grid(column=0, row=0)
+
+    settings_root.protocol("WM_DELETE_WINDOW", settingsWindowClosed)
+
+    settings_root.mainloop()
+
+    return

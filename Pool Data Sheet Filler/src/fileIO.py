@@ -19,20 +19,26 @@
 
 import pandas as pd
 from datetime import datetime
-import tkinter
+from src.errorHandling import fatalError
+import traceback
 
 
 # contains functions for handling file I/O
 
 # reads spreadsheet file and returns as list of lists containing the spreadsheet contents
 def readExcel(filePath, **kwargs):
-    tempSheet = pd.read_excel(filePath, **kwargs)
-    tempSheet = tempSheet.fillna('')
-    sheet = tempSheet.values.tolist()
-    # pd.values.tolist() converts an excel date to a python date data type
-    # convert back to string to avoid errors
-    for row_index, row in enumerate(sheet):
-        for col_index, cell in enumerate(row):
-            if isinstance(cell, datetime):
-                sheet[row_index][col_index] = cell.strftime("%d-%m-%Y")
-    return sheet
+    try:
+        tempSheet = pd.read_excel(filePath, **kwargs)
+        tempSheet = tempSheet.fillna('')
+        sheet = tempSheet.values.tolist()
+        # pd.values.tolist() converts an excel date to a python date data type
+        # convert back to string to avoid errors
+        for row_index, row in enumerate(sheet):
+            for col_index, cell in enumerate(row):
+                if isinstance(cell, datetime):
+                    sheet[row_index][col_index] = cell.strftime("%d-%m-%Y")
+        return sheet
+    except Exception as error:
+        with open('log.txt', 'w') as f:
+            f.write(traceback.format_exc())
+        fatalError(14,"Unable to open excel file. Traceback has been written to log file")

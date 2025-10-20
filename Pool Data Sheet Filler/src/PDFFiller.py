@@ -57,6 +57,6 @@ def run():
     except:
         with open('log.txt', 'w') as f:
             f.write(traceback.format_exc())
-        fatalError(12,"Unable to save new PDF file. Traceback has been written to log file")
+        fatalError(13,"Unable to save new PDF file. Traceback has been written to log file")
     doc.close()
     os.startfile(FilledPDFPath)
