@@ -34,7 +34,7 @@ try:
     os.chdir(script_dir)
 
     #Only runs program if the UI subroutine returns TRUE when it is closed
-    if homeWindow():
+    if userInterface():
         PDFFiller.run()
 
 except Exception as error:

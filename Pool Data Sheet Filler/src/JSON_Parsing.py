@@ -212,5 +212,37 @@ def parseExcelMaping(filepath):
 
     return data
 
+#checks if the excel maping file has all required fields
 def checkExcelMapingSchema(data):
-    return
+    schema = {
+        "type": "object",
+        "required": ["Use Config Sheet Info",
+                     "name" ,
+                     "type",
+                     "multi choice options",
+                     "X insertion coordinate",
+                     "Y insertion coordinate",
+                     "Cell Reference",
+                     "Document Page",
+                     "coordinate units",
+                     "excel file",
+                     "sheet name"
+                    ],
+        "properties": {
+        "Use Config Sheet Info": {"type": "boolean"},
+        "type": {"type": "string"},
+        "multi choice options": {"type": "string"},
+        "X insertion coordinate" : {"type": "string"},
+        "Y insertion coordinate": {"type": "string"},
+        "Cell Reference": {"type": "string"},
+        "Document Page": {"type": "string"},
+        "coordinate units": {"type": "string"},
+        "excel file": {"type": "string"},
+        "sheet name": {"type": "string"}
+        }
+    }
+
+    try:
+        jsonschema.validate(instance=data, schema=schema)
+    except jsonschema.ValidationError as e:
+        fatalError(15,e.message)
