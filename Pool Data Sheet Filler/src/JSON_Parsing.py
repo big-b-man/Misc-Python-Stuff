@@ -216,8 +216,7 @@ def parseExcelMaping(filepath):
 def checkExcelMapingSchema(data):
     schema = {
         "type": "object",
-        "required": ["Use Config Sheet Info",
-                     "name" ,
+        "required": ["name" ,
                      "type",
                      "multi choice options",
                      "X insertion coordinate",
@@ -229,7 +228,6 @@ def checkExcelMapingSchema(data):
                      "sheet name"
                     ],
         "properties": {
-        "Use Config Sheet Info": {"type": "boolean"},
         "type": {"type": "string"},
         "multi choice options": {"type": "string"},
         "X insertion coordinate" : {"type": "string"},
