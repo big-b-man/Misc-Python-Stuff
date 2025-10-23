@@ -246,3 +246,8 @@ def checkExcelMapingSchema(data):
         jsonschema.validate(instance=data, schema=schema)
     except jsonschema.ValidationError as e:
         fatalError(15,e.message)
+
+#changes fields object in JSON using values from Excel Sheet
+def changeFields(excelSheet):
+    config = parseConfigFile("config/Configuration.json")
+    excelSheet = parseExcelMaping("config/excelMappings.json")

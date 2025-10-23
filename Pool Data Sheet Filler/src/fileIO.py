@@ -43,10 +43,11 @@ def readExcel(filePath, **kwargs):
             f.write(traceback.format_exc())
         fatalError(14,"Unable to open excel file. Traceback has been written to log file")
 
+# gets sheet name from an excel file
 def getSheetNames(filePath):
     try:
-        tempSheet = pd.read_excel(filePath)
-        return tempSheet.sheetNames
+        tempSheet = pd.ExcelFile(filePath)
+        return tempSheet.sheet_names
     except Exception as error:
         with open('log.txt', 'w') as f:
             f.write(traceback.format_exc())

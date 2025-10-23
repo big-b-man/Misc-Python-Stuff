@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-#Runs the PDF Editor with the user interface
+# Runs the PDF Editor with the user interface
 
 import traceback
 from src.errorHandling import fatalError
