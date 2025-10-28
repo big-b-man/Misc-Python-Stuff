@@ -29,3 +29,6 @@ def fatalError(errorCode, error):
     errorString += str(error) 
     messagebox.showwarning("Error", "Error code " + str(errorCode) + errorString)
     sys.exit()
+
+def nonFatalError(warning):
+    messagebox.showwarning("Warning", warning)

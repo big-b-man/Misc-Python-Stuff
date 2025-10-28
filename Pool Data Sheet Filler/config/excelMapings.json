@@ -1,0 +1,14 @@
+{
+    "name": "A",
+    "type": "B",
+    "multi choice options": "C",
+    "X insertion coordinate": "D",
+    "Y insertion coordinate": "E",
+    "cell reference": "F",
+    "document page": "G",
+    "coordinate units": "H",
+    "override name": "I",
+    "override value": "J",
+    "excel file": "C:/Users/benne/GitHub/Misc-Python-Stuff/Pool Data Sheet Filler/Test Sheet.xlsx",
+    "sheet name": "Pool Data For Export"
+}

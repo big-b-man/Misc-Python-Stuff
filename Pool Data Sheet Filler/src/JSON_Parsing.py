@@ -19,9 +19,113 @@
 
 # Contains functions for parsing JSON file containing settings and PDF fields
 
+# TODO: Insert a function to parse the config file while only checking the default settings object so it can be imported if fields are screwed up
+
 import jsonschema
 import json
 from src.errorHandling import fatalError
+from src.errorHandling import nonFatalError
+
+configSchema = {
+    "type": "object",
+    "required": ["default settings", "fields"]
+}
+
+defaultSettingsSchema = {
+    "type": "object",
+    "required": ["PDF Path",
+                 "Filled PDF Path",
+                 "Prompt For Save Path",
+                 "Spreadsheet Path",
+                 "Spreadsheet Sheet Name",
+                 "font size",
+                 "text x offset",
+                 "text y offset",
+                 "checkbox size",
+                 "checkbox line width"],
+    "properties": {
+    "PDF Path": {"type": "string"},
+    "Prompt For Save Path": {"type": "boolean"},
+    "Spreadsheet Path": {"type": "string"},
+    "Filled PDF Path": {"type": "string"},
+    "Spreadsheet Sheet Name": {"type": "string"},
+    "font size": {"type": "number"},
+    "text x offset": {"type": "number"},
+    "text y offset": {"type": "number"},
+    "checkbox size": {"type": "number"},
+    "checkbox line width": {"type": "number"}
+    }
+}
+
+fieldsSchema = {
+    "type": "object",
+    "required": ["type"],
+    "properties": {
+        "type": {
+            "type": "string",
+            "enum": ["multiChoiceCheckbox", "string"]    
+        }
+    }
+}
+
+multiChoiceSchema = {
+    "type": "object",
+    "required": ["name",
+        "type",
+        "options",
+        "cell reference",
+        "document page",
+        "coordinate units"],
+    "properties": {
+        "name": {"type": "string"},
+        "options": {"type": "array"},
+        "document page": {"type": "number"},
+        "coordinate units": {
+            "type": "string",
+            "enum": ["points", "inches", "mm"]
+        }
+    }
+}
+
+multiChoiceOptionschema = {
+    "type": "object",
+    "required": ["option name",
+        "document coordinates"],
+    "properties": {
+        "option name": {"type": "string"},
+        "document coordinates": {
+            "type": "array",
+            "items": {"type": "number"},
+            "minItems": 2,
+            "maxItems": 2
+        },
+    }
+}
+
+stringSchema = {
+    "type": "object",
+    "required": ["name",
+        "type",
+        "cell reference",
+        "document page",
+        "document coordinates",
+        "coordinate units"],
+    "properties": {
+    "name": {"type": "string"},
+    "cell reference": {"type": "string"},
+    "document page": {"type": "number"},
+    "document coordinates": {
+        "type": "array",
+        "items": {"type": "number"},
+        "minItems": 2,
+        "maxItems": 2
+    },
+    "coordinate units": {
+        "type": "string",
+        "enum": ["points", "inches", "mm"]
+        }
+    }
+}
 
 # Load Configuration.json which contains default settings and fields in the PDF.
 # Checks the JSON schema using checkConfigSchema()
@@ -42,13 +146,8 @@ def parseConfigFile(filepath):
 # Checks schema of "default settings" using checkDefaultSetttings()"
 # Checks schema of "fields" using checkFields()
 def checkConfigSchema(data):
-    schema = {
-        "type": "object",
-        "required": ["default settings", "fields"]
-    }
-
     try:
-        jsonschema.validate(instance=data, schema=schema)
+        jsonschema.validate(instance=data, schema=configSchema)
     except jsonschema.ValidationError as error:
         fatalError(2,error.message)
     checkDefaultSettings(data["default settings"])
@@ -56,53 +155,17 @@ def checkConfigSchema(data):
 
 # checks if the default settings are formatted correctly
 def checkDefaultSettings(data):
-    schema = {
-        "type": "object",
-        "required": ["PDF Path",
-                     "Filled PDF Path",
-                     "Prompt For Save Path",
-                     "Spreadsheet Path",
-                     "Spreadsheet Sheet Name",
-                     "font size",
-                     "text x offset",
-                     "text y offset",
-                     "checkbox size",
-                     "checkbox line width"],
-        "properties": {
-        "PDF Path": {"type": "string"},
-        "Prompt For Save Path": {"type": "boolean"},
-        "Spreadsheet Path": {"type": "string"},
-        "Filled PDF Path": {"type": "string"},
-        "Spreadsheet Sheet Name": {"type": "string"},
-        "font size": {"type": "number"},
-        "text x offset": {"type": "number"},
-        "text y offset": {"type": "number"},
-        "checkbox size": {"type": "number"},
-        "checkbox line width": {"type": "number"}
-        }
-    }
-
     try:
-        jsonschema.validate(instance=data, schema=schema)
+        jsonschema.validate(instance=data, schema=defaultSettingsSchema)
     except jsonschema.ValidationError as e:
         fatalError(3,e.message)
 
+# checks if the data fields are formatted correctly
 def checkFields(data):
     #check schema to see if field is valid type
-    for item in data:
-        schema = {
-            "type": "object",
-            "required": ["type"],
-            "properties": {
-                "type": {
-                    "type": "string",
-                    "enum": ["multiChoiceCheckbox", "string"]    
-                }
-            }
-        }
-        
+    for item in data:        
         try:
-            jsonschema.validate(instance=item, schema=schema)
+            jsonschema.validate(instance=item, schema=fieldsSchema)
         except jsonschema.ValidationError as error:
             fatalError(4, 'The following document field: "' + str(item["name"]) \
                        + '" has an invalid field type. ' + str(error.message))
@@ -114,80 +177,23 @@ def checkFields(data):
             case "multiChoiceCheckbox":
                 validateMultiChoiceCheckbox(item)
 
+# checks if multi choice checkbox field items are formatted correctly
 def validateMultiChoiceCheckbox(data):
-    schema = {
-        "type": "object",
-        "required": ["name",
-            "type",
-            "options",
-            "cell reference",
-            "document page",
-            "coordinate units"],
-        "properties": {
-            "name": {"type": "string"},
-            "options": {"type": "array"},
-            "document page": {"type": "number"},
-            "coordinate units": {
-                "type": "string",
-                "enum": ["points", "inches", "mm"]
-            }
-        }
-    }
     try:
-        jsonschema.validate(instance=data, schema=schema)
+        jsonschema.validate(instance=data, schema=multiChoiceSchema)
     except jsonschema.ValidationError as e:
         fatalError(6, 'document field "'+ str(data["name"]) +'" has invalid schema: ' + str(e.message))
 
-    #Used for tracking which option of the multiple choice checkbox we are currently validating
-
     for option in data["options"]:
-        schema = {
-        "type": "object",
-        "required": ["option name",
-            "document coordinates"],
-        "properties": {
-            "option name": {"type": "string"},
-            "document coordinates": {
-                "type": "array",
-                "items": {"type": "number"},
-                "minItems": 2,
-                "maxItems": 2
-                },
-            }
-        }
         try:
-            jsonschema.validate(instance=option, schema=schema)
+            jsonschema.validate(instance=option, schema=multiChoiceOptionschema)
         except jsonschema.ValidationError as e:
             fatalError(7,'multi choice checkbox option in "' + str(data["name"]) + '" field has invalid schema: ' + str(e.message))
 
 # checks if string fields are formatted correctly
 def validateString(data):
-    schema = {
-        "type": "object",
-        "required": ["name",
-            "type",
-            "cell reference",
-            "document page",
-            "document coordinates",
-            "coordinate units"],
-        "properties": {
-        "name": {"type": "string"},
-        "cell reference": {"type": "string"},
-        "document page": {"type": "number"},
-        "document coordinates": {
-            "type": "array",
-            "items": {"type": "number"},
-            "minItems": 2,
-            "maxItems": 2
-        },
-        "coordinate units": {
-            "type": "string",
-            "enum": ["points", "inches", "mm"]
-            }
-        }
-    }
     try:
-        jsonschema.validate(instance=data, schema=schema)
+        jsonschema.validate(instance=data, schema=stringSchema)
     except jsonschema.ValidationError as e:
         fatalError(5, 'document field "'+ str(data["name"]) +'" has invalid schema: ' + str(e.message))
 
@@ -198,7 +204,7 @@ def changeFilepath(setting,filepath):
     with open('config/Configuration.json', 'w') as json_file:
         json.dump(config, json_file, indent=4)
 
-#pulls the JSON file defining the excel maping for translating an excel sheet to the configuration JSON
+# pulls the JSON file defining the excel maping for translating an excel sheet to the configuration JSON
 def parseExcelMaping(filepath):
     #load configuration file, throw error if not found
     try:
@@ -212,7 +218,7 @@ def parseExcelMaping(filepath):
 
     return data
 
-#checks if the excel maping file has all required fields
+# checks if the excel maping file has all required fields
 def checkExcelMapingSchema(data):
     schema = {
         "type": "object",
@@ -221,22 +227,23 @@ def checkExcelMapingSchema(data):
                      "multi choice options",
                      "X insertion coordinate",
                      "Y insertion coordinate",
-                     "Cell Reference",
-                     "Document Page",
+                     "cell reference",
+                     "document page",
                      "coordinate units",
                      "excel file",
                      "sheet name"
                     ],
         "properties": {
-        "type": {"type": "string"},
-        "multi choice options": {"type": "string"},
-        "X insertion coordinate" : {"type": "string"},
-        "Y insertion coordinate": {"type": "string"},
-        "Cell Reference": {"type": "string"},
-        "Document Page": {"type": "string"},
-        "coordinate units": {"type": "string"},
-        "excel file": {"type": "string"},
-        "sheet name": {"type": "string"}
+            "name": {"type": "string"},
+            "type": {"type": "string"},
+            "multi choice options": {"type": "string"},
+            "X insertion coordinate" : {"type": "string"},
+            "Y insertion coordinate": {"type": "string"},
+            "cell reference": {"type": "string"},
+            "document page": {"type": "string"},
+            "coordinate units": {"type": "string"},
+            "excel file": {"type": "string"},
+            "sheet name": {"type": "string"}
         }
     }
 
@@ -245,7 +252,98 @@ def checkExcelMapingSchema(data):
     except jsonschema.ValidationError as e:
         fatalError(15,e.message)
 
-#changes fields object in JSON using values from Excel Sheet
+# changes fields object in JSON using values from Excel Sheet
 def changeFields(excelSheet):
-    config = parseConfigFile("config/Configuration.json")
-    excelSheet = parseExcelMaping("config/excelMappings.json")
+    PDFConfig = parseConfigFile("config/Configuration.json")
+    excelConfig = parseExcelMaping("config/excelMappings.json")
+
+# same as parseConfigFile but doesn't end the program if the schema is bad
+def parseConfigFileNoFail(filepath):
+    #load configuration file, throw error if not found
+    try:
+        with open(filepath, 'r') as FILE:
+            data = json.load(FILE)
+    except Exception as error:
+        fatalError(1, 'Error reading config: ' + str(error))
+
+    #Verifies that the Configuration.JSON file has the correct schema
+    checkConfigSchemaNoFail(data)
+
+    return data
+
+# same as CheckConfigSchema but doesn't end the program if the schema is bad
+def checkConfigSchemaNoFail(data):
+    try:
+        jsonschema.validate(instance=data, schema=configSchema)
+    except jsonschema.ValidationError as error:
+        nonFatalError("Warning: the following piece of configuration.json is invalid and will " \
+        "cause the PDF Filler to fail: " + str(error.message))
+    checkDefaultSettingsNoFail(data["default settings"])
+    checkFieldsNoFail(data["fields"], False)
+
+# same as checkDefaultSettings but doesn't end the program if the schema is bad
+def checkDefaultSettingsNoFail(data):
+    try:
+        jsonschema.validate(instance=data, schema=defaultSettingsSchema)
+    except jsonschema.ValidationError as e:
+        nonFatalError("Warning: the following piece of configuration.json is invalid and will " \
+        "cause the PDF Filler to fail: " + str(e.message))
+
+# same as checkFields but doesn't end the program if the schema is bad
+def checkFieldsNoFail(data, supressWarnings):
+    #check schema to see if field is valid type
+    for item in data:        
+        try:
+            jsonschema.validate(instance=item, schema=fieldsSchema)
+        except jsonschema.ValidationError as error:
+            print("bad " + str(item["name"]))
+            if not supressWarnings:
+                nonFatalError('The document field: "' + str(item["name"]) \
+                        + '" has an invalid field type and will cause'
+                        ' the PDF filler to fail: ' + str(error.message))
+            else:
+                return False
+        
+        #check if properties of fields are accurate based on type
+        match item["type"]:
+            case "string":
+                if not validateStringNoFail(item, supressWarnings):
+                    return False
+            case "multiChoiceCheckbox":
+                if not validateMultiChoiceCheckboxNoFail(item, supressWarnings):
+                    return False
+        
+    return True
+
+# same as validateMultiChoiceCheckbox but doesn't end the program if the schema is bad
+def validateMultiChoiceCheckboxNoFail(data, supressWarnings):
+    try:
+        jsonschema.validate(instance=data, schema=multiChoiceSchema)
+    except jsonschema.ValidationError as e:
+        if not supressWarnings:
+            nonFatalError('The document field "'+ str(data["name"]) +'" has invalid '
+            'schema and will cause the PDF Filler to fail: ' + str(e.message))
+        else:
+            return False
+
+    for option in data["options"]:
+        try:
+            jsonschema.validate(instance=option, schema=multiChoiceOptionschema)
+        except jsonschema.ValidationError as e:
+            if not supressWarnings:
+                nonFatalError('Multi choice checkbox option in "' + str(data["name"]) + '" field has invalid '
+                            'schema and will cause the PDF Filler to fail: ' + str(e.message))
+            else:
+                return False
+    return True
+
+# same as validatString but doesn't end the program if the schema is bad
+def validateStringNoFail(data, supressWarnings):
+    try:
+        jsonschema.validate(instance=data, schema=stringSchema)
+    except jsonschema.ValidationError as e:
+        if not supressWarnings:
+            nonFatalError('Document field "'+ str(data["name"]) +'" has invalid schema: ' + str(e.message))
+        else:
+            return False
+    return True

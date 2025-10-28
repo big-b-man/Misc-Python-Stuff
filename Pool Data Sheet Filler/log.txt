@@ -1,10 +1,16 @@
-cannot save with zero pagesTraceback (most recent call last):
-  File "c:\Users\benne\OneDrive\Documents\GitHub\Misc-Python-Stuff\Pool Data Sheet Filler\PDF Filler.py", line 37, in <module>
-    PDFFiller.run()
-    ~~~~~~~~~~~~~^^
-  File "c:\Users\benne\OneDrive\Documents\GitHub\Misc-Python-Stuff\Pool Data Sheet Filler\src\PDFFiller.py", line 45, in run
-    doc.save(FilledPDFPath)
-    ~~~~~~~~^^^^^^^^^^^^^^^
-  File "C:\Users\benne\AppData\Local\Programs\Python\Python313\Lib\site-packages\pymupdf\__init__.py", line 5602, in save
-    raise ValueError("cannot save with zero pages")
-ValueError: cannot save with zero pages
+Traceback (most recent call last):
+  File "c:\Users\benne\GitHub\Misc-Python-Stuff\Pool Data Sheet Filler\PDF Filler.pyw", line 37, in <module>
+    if userInterface():
+       ^^^^^^^^^^^^^^^
+  File "c:\Users\benne\GitHub\Misc-Python-Stuff\Pool Data Sheet Filler\src\userInterface.py", line 46, in userInterface
+    state = homeWindow()
+            ^^^^^^^^^^^^
+  File "c:\Users\benne\GitHub\Misc-Python-Stuff\Pool Data Sheet Filler\src\userInterface.py", line 55, in homeWindow
+    config = ParseJSON.parseConfigFileNoFail("config/configuration.json")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\benne\GitHub\Misc-Python-Stuff\Pool Data Sheet Filler\src\JSON_Parsing.py", line 270, in parseConfigFileNoFail
+    checkConfigSchemaNoFail(data)
+  File "c:\Users\benne\GitHub\Misc-Python-Stuff\Pool Data Sheet Filler\src\JSON_Parsing.py", line 281, in checkConfigSchemaNoFail
+    checkDefaultSettingsNoFail(data["default settings"])
+                               ~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'default settings'

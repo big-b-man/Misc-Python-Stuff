@@ -27,6 +27,7 @@ import src.JSON_Parsing as ParseJSON
 import os
 import src.fileIO as fileIO
 import copy
+import json
 
 def userInterface():
     # states:
@@ -50,11 +51,11 @@ def homeWindow():
     #state variable
     state = 0
     
+    # get the config file for finding default settings
+    config = ParseJSON.parseConfigFileNoFail("config/configuration.json")
+
     # window root
     home_root = tk.Tk()
-    
-    # get the config file for finding default settings
-    config = ParseJSON.parseConfigFile("config/configuration.json")
 
     # window title
     home_root.title('PDF Filler Tool')
@@ -118,8 +119,8 @@ def homeWindow():
     return state
 
 def settingsWindow():
-    config = ParseJSON.parseConfigFile("config/configuration.json")
-    excelMaping = ParseJSON.parseExcelMaping("config/excelMappings.json")
+    config = ParseJSON.parseConfigFileNoFail("config/configuration.json")
+    excelMaping = ParseJSON.parseExcelMaping("config/excelMapings.json")
     
     # window root
     settings_root = tk.Tk()
@@ -128,7 +129,7 @@ def settingsWindow():
     settings_root.title('Settings')
 
     # window size
-    settings_root.geometry("200x100")
+    # settings_root.geometry("200x100")
 
     settings_content = ttk.Frame(settings_root)
 
@@ -145,7 +146,7 @@ def settingsWindow():
         
         # return to PDF filler window if file dialogue box is clsoed.
         if not filepath:
-            return False
+            return
         
         excelMaping["excel file"] = filepath
 
@@ -158,16 +159,15 @@ def settingsWindow():
         # window title
         select_sheet_root.title("Select sheet")
 
-        # Used to store the name of the excel sheet containing the settings
-        MapingFileSheet = None
-
         # select sheet button action, gets contents of excel sheet and stores to MapingFileSheet
         def sheetSelectButton():
             nonlocal excelMaping
             # Don't do anything if the sample text is still in the combobox (Nothing has been selected)
             if select_sheet_dropdown.get() == ("Select a sheet"):
                 return
-            excelMaping["sheet name"] = fileIO.readExcel(excelMaping["excel file"], sheet_name=select_sheet_dropdown.get(), header=None)
+            excelMaping["sheet name"] = select_sheet_dropdown.get()
+            with open('config/excelMapings.json', 'w') as json_file:
+                json.dump(excelMaping, json_file, indent=4)
             select_sheet_root.destroy()
 
         select_sheet_dropdown= ttk.Combobox(select_sheet_root, values= fileIO.getSheetNames(filepath), state="readonly")
@@ -177,14 +177,22 @@ def settingsWindow():
         select_sheet_affirm.pack()
         
         select_sheet_root.mainloop()
-        print(excelMaping)
 
+    def remapPDFButton():
+        fileIO.fieldsFromExcel(excelMaping,config)
+
+    settings_select_maping_file_label = ttk.Label(settings_content, text="Select Excel Maping File: ")
     settings_close_button = ttk.Button(settings_content, text="Close", command= settingsWindowClosed)
     settings_select_maping_file = ttk.Button(settings_content, text="Choose File",command=settingsSelectMapingFileFunction)
+    settings_remap_PDF_label = ttk.Label(settings_content, text= "Remap PDF:")
+    settings_remap_PDF_button = ttk.Button(settings_content, text="Remap", command=remapPDFButton)
 
     settings_content.grid(column=0, row=0)
-    settings_close_button.grid(column=0, row=0)
+    settings_select_maping_file_label.grid(column=0, row=0)
     settings_select_maping_file.grid(column=1, row=0)
+    settings_remap_PDF_label.grid(column=0, row=1)
+    settings_remap_PDF_button.grid(column=1, row=1)
+    settings_close_button.grid(column=1, row=2)
 
     settings_root.protocol("WM_DELETE_WINDOW", settingsWindowClosed)
 

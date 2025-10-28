@@ -33,7 +33,7 @@ try:
     # Change the current working directory to the script's directory
     os.chdir(script_dir)
 
-    #Only runs program if the UI subroutine returns TRUE when it is closed
+    # Only runs program if the UI subroutine returns TRUE when it is closed
     if userInterface():
         PDFFiller.run()
 
