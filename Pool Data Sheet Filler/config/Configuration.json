@@ -1,7 +1,7 @@
 {
     "default settings": {
-        "PDF Path": "C:/Users/benne/GitHub/Misc-Python-Stuff/Pool Data Sheet Filler/Application for Permit (Pool Data Sheet) 1.pdf",
-        "Filled PDF Path": "C:/Users/benne/GitHub/Misc-Python-Stuff/Pool Data Sheet Filler/Filled Data Sheet.pdf",
+        "PDF Path": "Application for Permit (Pool Data Sheet) 1.pdf",
+        "Filled PDF Path": "Filled Data Sheet.pdf",
         "Prompt For Save Path": false,
         "Spreadsheet Path": "Test Sheet.xlsx",
         "Spreadsheet Sheet Name": "Application 1",
@@ -572,105 +572,1799 @@
             "coordinate units": "points"
         },
         {
-            "name": "General Pool Parameters: Complies with Pool Regulations",
+            "name": "Filtration System: Filter Type",
             "type": "multiChoiceCheckbox",
             "options": [
                 {
-                    "option name": "Yes",
+                    "option name": "sand",
                     "document coordinates": [
-                        444,
-                        568
+                        41,
+                        167
                     ]
                 },
                 {
-                    "option name": "No",
+                    "option name": "diatomaceous earth",
                     "document coordinates": [
-                        481,
-                        568
-                    ]
-                }
-            ],
-            "document coordinates": [
-                444,
-                568
-            ],
-            "cell reference": "L56",
-            "document page": 3,
-            "coordinate units": "points"
-        },
-        {
-            "name": "General Pool Parameters: Filters",
-            "type": "multiChoiceCheckbox",
-            "options": [
-                {
-                    "option name": "Sand",
-                    "document coordinates": [
-                        154,
-                        597
+                        88,
+                        167
                     ]
                 },
                 {
-                    "option name": "D.E.",
+                    "option name": "pressure",
                     "document coordinates": [
                         201,
-                        597
+                        167
                     ]
                 },
                 {
-                    "option name": "Pressure",
+                    "option name": "vacuum ",
                     "document coordinates": [
-                        270,
-                        597
+                        266,
+                        167
                     ]
                 },
                 {
-                    "option name": "Vacuum",
+                    "option name": "gravity",
                     "document coordinates": [
-                        338,
-                        597
-                    ]
-                },
-                {
-                    "option name": "Gravity",
-                    "document coordinates": [
-                        398,
-                        597
+                        326,
+                        167
                     ]
                 }
             ],
             "document coordinates": [
-                154,
-                597
+                41,
+                167
             ],
-            "cell reference": "L58",
+            "cell reference": "L55",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: Secondary Filter (For Polish Filter on Gravity Filter Pools)",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "sand",
+                    "document coordinates": [
+                        41,
+                        167
+                    ]
+                },
+                {
+                    "option name": "diatomaceous earth",
+                    "document coordinates": [
+                        88,
+                        167
+                    ]
+                },
+                {
+                    "option name": "pressure",
+                    "document coordinates": [
+                        201,
+                        167
+                    ]
+                },
+                {
+                    "option name": "vacuum ",
+                    "document coordinates": [
+                        266,
+                        167
+                    ]
+                },
+                {
+                    "option name": "gravity",
+                    "document coordinates": [
+                        326,
+                        167
+                    ]
+                }
+            ],
+            "document coordinates": [
+                41,
+                167
+            ],
+            "cell reference": "L60",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: NSF Approved",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "yes",
+                    "document coordinates": [
+                        403,
+                        167
+                    ]
+                },
+                {
+                    "option name": "no",
+                    "document coordinates": [
+                        441,
+                        167
+                    ]
+                }
+            ],
+            "document coordinates": [
+                403,
+                167
+            ],
+            "cell reference": "L65",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: NSF Standard",
+            "type": "string",
+            "document coordinates": [
+                481,
+                175
+            ],
+            "cell reference": "L67",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: Filter Make and Model",
+            "type": "string",
+            "document coordinates": [
+                34,
+                216
+            ],
+            "cell reference": "L68",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Filtration System: Number of Filters",
+            "type": "string",
+            "document coordinates": [
+                430,
+                216
+            ],
+            "cell reference": "L69",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Filtration System: Number of Elements",
+            "type": "string",
+            "document coordinates": [
+                531,
+                216
+            ],
+            "cell reference": "L70",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Filtration System: Filter Make and Model Secondary",
+            "type": "string",
+            "document coordinates": [
+                35,
+                216
+            ],
+            "cell reference": "L71",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 18
+            }
+        },
+        {
+            "name": "Filtration System: Number of Filters Secondary",
+            "type": "string",
+            "document coordinates": [
+                430,
+                216
+            ],
+            "cell reference": "L72",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 18
+            }
+        },
+        {
+            "name": "Filtration System: Number of Elements Secondary",
+            "type": "string",
+            "document coordinates": [
+                531,
+                216
+            ],
+            "cell reference": "L73",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 18
+            }
+        },
+        {
+            "name": "Filtration System: Surface Area of Each Filter (m^2)",
+            "type": "string",
+            "document coordinates": [
+                60,
+                249
+            ],
+            "cell reference": "L74",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 8
+            }
+        },
+        {
+            "name": "Filtration System: Total Area of All Filters (m^2)",
+            "type": "string",
+            "document coordinates": [
+                202,
+                249
+            ],
+            "cell reference": "L75",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 8
+            }
+        },
+        {
+            "name": "Filtration System: Total Area of Each Element (m^2)",
+            "type": "string",
+            "document coordinates": [
+                322,
+                249
+            ],
+            "cell reference": "L76",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 8
+            }
+        },
+        {
+            "name": "Filtration System: Total Area of All Elements (m^2)",
+            "type": "string",
+            "document coordinates": [
+                471,
+                249
+            ],
+            "cell reference": "L77",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 8
+            }
+        },
+        {
+            "name": "Filtration System: Rate of Filtration (L/min/m^2)",
+            "type": "string",
+            "document coordinates": [
+                35,
+                280
+            ],
+            "cell reference": "L78",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: Total Filter Capacity (L/min) (Rate of filtration x total area)",
+            "type": "string",
+            "document coordinates": [
+                297,
+                280
+            ],
+            "cell reference": "L79",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: Filter Backwash Pump Make and Model",
+            "type": "string",
+            "document coordinates": [
+                114,
+                309
+            ],
+            "cell reference": "L80",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: Backwash Pump Flowrate (L/min)",
+            "type": "string",
+            "document coordinates": [
+                114,
+                341
+            ],
+            "cell reference": "L81",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: Backwash Pump Total Dynamic Head (m):",
+            "type": "string",
+            "document coordinates": [
+                158,
+                341
+            ],
+            "cell reference": "L82",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: Backwash Rate (L/min/m^2)",
+            "type": "string",
+            "document coordinates": [
+                249,
+                341
+            ],
+            "cell reference": "L83",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Filtration System: Backwash Rate per Filter (L/min)",
+            "type": "string",
+            "document coordinates": [
+                403,
+                341
+            ],
+            "cell reference": "L84",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Gauges: Pressure Gauges (#)",
+            "type": "string",
+            "document coordinates": [
+                35,
+                398
+            ],
+            "cell reference": "L86",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Gauges: Vacuum Gauges (#)",
+            "type": "string",
+            "document coordinates": [
+                215,
+                398
+            ],
+            "cell reference": "L87",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Gauges: Temperature Gauges (#)",
+            "type": "string",
+            "document coordinates": [
+                405,
+                398
+            ],
+            "cell reference": "L88",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Gauges: Flow Meter Make and Model (1)",
+            "type": "string",
+            "document coordinates": [
+                168,
+                427
+            ],
+            "cell reference": "L89",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 17,
+                "font size": 10
+            }
+        },
+        {
+            "name": "Gauges: Flow Meter Make and Model (2)",
+            "type": "string",
+            "document coordinates": [
+                168,
+                427
+            ],
+            "cell reference": "L91",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4,
+                "font size": 10
+            }
+        },
+        {
+            "name": "Gauges: Flow Meter Range (L/min) low",
+            "type": "string",
+            "document coordinates": [
+                405,
+                427
+            ],
+            "cell reference": "L93",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Gauges: Flow Meter Range (L/min) high",
+            "type": "string",
+            "document coordinates": [
+                465,
+                427
+            ],
+            "cell reference": "L94",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Disinfection : Primary Disinfectant",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "hypochlorite",
+                    "document coordinates": [
+                        41,
+                        482
+                    ]
+                },
+                {
+                    "option name": "chlorine gas",
+                    "document coordinates": [
+                        117,
+                        482
+                    ]
+                },
+                {
+                    "option name": "stabilized chlorine",
+                    "document coordinates": [
+                        193,
+                        482
+                    ]
+                },
+                {
+                    "option name": "saltwater chlorination",
+                    "document coordinates": [
+                        294,
+                        482
+                    ]
+                },
+                {
+                    "option name": "bromine",
+                    "document coordinates": [
+                        409,
+                        482
+                    ]
+                },
+                {
+                    "option name": "other",
+                    "document coordinates": [
+                        467,
+                        482
+                    ]
+                }
+            ],
+            "document coordinates": [
+                41,
+                482
+            ],
+            "cell reference": "L96",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Disinfection : Other Disinfectant",
+            "type": "string",
+            "document coordinates": [
+                507,
+                490
+            ],
+            "cell reference": "L102",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Disinfection : Disinfectant Feeder Make and Model",
+            "type": "string",
+            "document coordinates": [
+                35,
+                520
+            ],
+            "cell reference": "L103",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Disinfection : Disinfectant Feeder Capacity (kg/24 hrs)",
+            "type": "string",
+            "document coordinates": [
+                35,
+                555
+            ],
+            "cell reference": "L104",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Disinfection : Point of Injection",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Filter Influent",
+                    "document coordinates": [
+                        241,
+                        548
+                    ]
+                },
+                {
+                    "option name": "Filter Effluent",
+                    "document coordinates": [
+                        318,
+                        548
+                    ]
+                }
+            ],
+            "document coordinates": [
+                241,
+                548
+            ],
+            "cell reference": "L105",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Disinfection : Maximum Dosing Rate (mg/L)",
+            "type": "string",
+            "document coordinates": [
+                409,
+                555
+            ],
+            "cell reference": "L107",
+            "document page": 2,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Chemical Feeders: Feeder #1 Make and Model",
+            "type": "string",
+            "document coordinates": [
+                114,
+                611
+            ],
+            "cell reference": "L109",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Chemical Feeders: Feeder #1 Chemical/Slurry Feed",
+            "type": "string",
+            "document coordinates": [
+                114,
+                640
+            ],
+            "cell reference": "L110",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Chemical Feeders: Feeder #1 Capacity (kg/24 hrs)",
+            "type": "string",
+            "document coordinates": [
+                270,
+                640
+            ],
+            "cell reference": "L111",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Chemical Feeders: Feeder #1 Injection Point",
+            "type": "string",
+            "document coordinates": [
+                425,
+                640
+            ],
+            "cell reference": "L112",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Chemical Feeders: Feeder #2 Make and Model",
+            "type": "string",
+            "document coordinates": [
+                114,
+                670
+            ],
+            "cell reference": "L113",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Chemical Feeders: Feeder #2 Chemical/Slurry Feed",
+            "type": "string",
+            "document coordinates": [
+                114,
+                699
+            ],
+            "cell reference": "L114",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Chemical Feeders: Feeder #2 Capacity (kg/24 hrs)",
+            "type": "string",
+            "document coordinates": [
+                270,
+                699
+            ],
+            "cell reference": "L115",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Chemical Feeders: Feeder #2 Injection Point",
+            "type": "string",
+            "document coordinates": [
+                425,
+                699
+            ],
+            "cell reference": "L116",
+            "document page": 2,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Pool Inlets: Inlet Type:",
+            "type": "string",
+            "document coordinates": [
+                34,
+                170
+            ],
+            "cell reference": "L118",
             "document page": 3,
             "coordinate units": "points"
         },
         {
-            "name": "General Pool Parameters: NSF Approved",
+            "name": "Pool Inlets: Inlet Size (cm)",
+            "type": "string",
+            "document coordinates": [
+                183,
+                170
+            ],
+            "cell reference": "L119",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Pool Inlets: Number of Inlets",
+            "type": "string",
+            "document coordinates": [
+                261,
+                170
+            ],
+            "cell reference": "L120",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Pool Inlets: Inlet Spacing (m)",
+            "type": "string",
+            "document coordinates": [
+                306,
+                170
+            ],
+            "cell reference": "L121",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Pool Inlets: Depth Below Water Level (cm)",
+            "type": "string",
+            "document coordinates": [
+                424,
+                170
+            ],
+            "cell reference": "L122",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Drains: Total Number of Drains",
+            "type": "string",
+            "document coordinates": [
+                105,
+                227
+            ],
+            "cell reference": "L124",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Drains: Main Drain: Make and Model",
+            "type": "string",
+            "document coordinates": [
+                105,
+                257
+            ],
+            "cell reference": "L125",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Main Drain: Number",
+            "type": "string",
+            "document coordinates": [
+                105,
+                287
+            ],
+            "cell reference": "L126",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Main Drain: Size of Free Opening (cm2)",
+            "type": "string",
+            "document coordinates": [
+                225,
+                287
+            ],
+            "cell reference": "L127",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Main Drain: Velocity through Grate Opening (m/sec)",
+            "type": "string",
+            "document coordinates": [
+                374,
+                287
+            ],
+            "cell reference": "L128",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Jet Pump Drain: Make and Model",
+            "type": "string",
+            "document coordinates": [
+                105,
+                316
+            ],
+            "cell reference": "L129",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Jet Pump Drain: Number",
+            "type": "string",
+            "document coordinates": [
+                105,
+                346
+            ],
+            "cell reference": "L130",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Jet Pump Drain: Size of Free Opening (cm2)",
+            "type": "string",
+            "document coordinates": [
+                225,
+                346
+            ],
+            "cell reference": "L131",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Jet Pump Drain: Velocity through Grate Opening (m/sec)",
+            "type": "string",
+            "document coordinates": [
+                374,
+                346
+            ],
+            "cell reference": "L132",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 1: Make and Model",
+            "type": "string",
+            "document coordinates": [
+                105,
+                376
+            ],
+            "cell reference": "L133",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 1: Number",
+            "type": "string",
+            "document coordinates": [
+                105,
+                405
+            ],
+            "cell reference": "L134",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 1: Size of Free Opening (cm2)",
+            "type": "string",
+            "document coordinates": [
+                225,
+                405
+            ],
+            "cell reference": "L135",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 1: Velocity through Grate Opening (m/sec)",
+            "type": "string",
+            "document coordinates": [
+                374,
+                405
+            ],
+            "cell reference": "L136",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 2: Make and Model",
+            "type": "string",
+            "document coordinates": [
+                105,
+                434
+            ],
+            "cell reference": "L137",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 2: Number",
+            "type": "string",
+            "document coordinates": [
+                105,
+                465
+            ],
+            "cell reference": "L138",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 2: Size of Free Opening (cm2)",
+            "type": "string",
+            "document coordinates": [
+                225,
+                465
+            ],
+            "cell reference": "L139",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 2: Velocity through Grate Opening (m/sec)",
+            "type": "string",
+            "document coordinates": [
+                374,
+                465
+            ],
+            "cell reference": "L140",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 3: Make and Model",
+            "type": "string",
+            "document coordinates": [
+                105,
+                495
+            ],
+            "cell reference": "L141",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 3: Number",
+            "type": "string",
+            "document coordinates": [
+                105,
+                524
+            ],
+            "cell reference": "L142",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 3: Size of Free Opening (cm2)",
+            "type": "string",
+            "document coordinates": [
+                225,
+                524
+            ],
+            "cell reference": "L143",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Drains: Other Drain 3: Velocity through Grate Opening (m/sec)",
+            "type": "string",
+            "document coordinates": [
+                374,
+                524
+            ],
+            "cell reference": "L144",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Overflow Type",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "skimmer ",
+                    "document coordinates": [
+                        41,
+                        579
+                    ]
+                },
+                {
+                    "option name": "raised-edge gutter",
+                    "document coordinates": [
+                        104,
+                        579
+                    ]
+                },
+                {
+                    "option name": "roll-out gutter",
+                    "document coordinates": [
+                        211,
+                        579
+                    ]
+                },
+                {
+                    "option name": "deck-level gutter",
+                    "document coordinates": [
+                        295,
+                        579
+                    ]
+                },
+                {
+                    "option name": "other",
+                    "document coordinates": [
+                        394,
+                        579
+                    ]
+                }
+            ],
+            "document coordinates": [
+                41,
+                579
+            ],
+            "cell reference": "L146",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Other Overflow Type",
+            "type": "string",
+            "document coordinates": [
+                432,
+                586
+            ],
+            "cell reference": "L151",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Number of Gutter Drains (m spacing)",
+            "type": "string",
+            "document coordinates": [
+                106,
+                616
+            ],
+            "cell reference": "L152",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Gutter Drain Size (cm)",
+            "type": "string",
+            "document coordinates": [
+                311,
+                616
+            ],
+            "cell reference": "L153",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Skimmer Make and Model",
+            "type": "string",
+            "document coordinates": [
+                106,
+                645
+            ],
+            "cell reference": "L154",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Number of Skimmers",
+            "type": "string",
+            "document coordinates": [
+                106,
+                686
+            ],
+            "cell reference": "L155",
+            "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Skimmer NSF Approved?",
             "type": "multiChoiceCheckbox",
             "options": [
                 {
                     "option name": "Yes",
                     "document coordinates": [
-                        537,
-                        597
+                        163,
+                        673
                     ]
                 },
                 {
                     "option name": "No",
                     "document coordinates": [
-                        567,
-                        597
+                        201,
+                        673
                     ]
                 }
             ],
             "document coordinates": [
-                537,
-                597
+                163,
+                673
             ],
-            "cell reference": "L63",
+            "cell reference": "L156",
             "document page": 3,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Skimmer Total Weir Length (cm)",
+            "type": "string",
+            "document coordinates": [
+                247,
+                686
+            ],
+            "cell reference": "L158",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Skimmer Maximum Overflow Capacity (L/min)",
+            "type": "string",
+            "document coordinates": [
+                360,
+                686
+            ],
+            "cell reference": "L159",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Overflow (Skimmers/Gutters) : Skimmer Normal Through Capacity (L/min)",
+            "type": "string",
+            "document coordinates": [
+                467,
+                686
+            ],
+            "cell reference": "L160",
+            "document page": 3,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 4
+            }
+        },
+        {
+            "name": "Make Up Water Source: Source",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Public",
+                    "document coordinates": [
+                        41,
+                        166
+                    ]
+                },
+                {
+                    "option name": "Private",
+                    "document coordinates": [
+                        93,
+                        166
+                    ]
+                }
+            ],
+            "document coordinates": [
+                41,
+                166
+            ],
+            "cell reference": "L162",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: Size of Makeup Line (cm)",
+            "type": "string",
+            "document coordinates": [
+                275,
+                173
+            ],
+            "cell reference": "L164",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: Control",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Manual",
+                    "document coordinates": [
+                        318,
+                        166
+                    ]
+                },
+                {
+                    "option name": "Automatic",
+                    "document coordinates": [
+                        376,
+                        166
+                    ]
+                }
+            ],
+            "document coordinates": [
+                318,
+                166
+            ],
+            "cell reference": "L165",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: Air Gap",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Yes",
+                    "document coordinates": [
+                        453,
+                        166
+                    ]
+                },
+                {
+                    "option name": "No",
+                    "document coordinates": [
+                        491,
+                        166
+                    ]
+                }
+            ],
+            "document coordinates": [
+                453,
+                166
+            ],
+            "cell reference": "L167",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: Backflow Preventer",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Yes",
+                    "document coordinates": [
+                        41,
+                        201
+                    ]
+                },
+                {
+                    "option name": "No",
+                    "document coordinates": [
+                        82,
+                        201
+                    ]
+                }
+            ],
+            "document coordinates": [
+                41,
+                201
+            ],
+            "cell reference": "L169",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: Backflow Preventer Make and Model",
+            "type": "string",
+            "document coordinates": [
+                226,
+                208
+            ],
+            "cell reference": "L171",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: System #1: System/Liquid Carried",
+            "type": "string",
+            "document coordinates": [
+                101,
+                271
+            ],
+            "cell reference": "L173",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: System #1: Pipe Material",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Copper",
+                    "document coordinates": [
+                        235,
+                        263
+                    ]
+                },
+                {
+                    "option name": "Carbon Steel",
+                    "document coordinates": [
+                        288,
+                        263
+                    ]
+                },
+                {
+                    "option name": "PVC",
+                    "document coordinates": [
+                        363,
+                        263
+                    ]
+                },
+                {
+                    "option name": "HDPE",
+                    "document coordinates": [
+                        405,
+                        263
+                    ]
+                },
+                {
+                    "option name": "Other",
+                    "document coordinates": [
+                        456,
+                        263
+                    ]
+                }
+            ],
+            "document coordinates": [
+                235,
+                263
+            ],
+            "cell reference": "L174",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: System #1: Other Pipe Material",
+            "type": "string",
+            "document coordinates": [
+                493,
+                263
+            ],
+            "cell reference": "L179",
+            "document page": 4,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 0
+            }
+        },
+        {
+            "name": "Make Up Water Source: System #1: Return piping to pool max velocity",
+            "type": "string",
+            "document coordinates": [
+                327,
+                283
+            ],
+            "cell reference": "L180",
+            "document page": 4,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 0
+            }
+        },
+        {
+            "name": "Make Up Water Source: System #1: Supply piping to pool max velocity",
+            "type": "string",
+            "document coordinates": [
+                478,
+                283
+            ],
+            "cell reference": "L181",
+            "document page": 4,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 0
+            }
+        },
+        {
+            "name": "Make Up Water Source: System #2: System/Liquid Carried",
+            "type": "string",
+            "document coordinates": [
+                101,
+                336
+            ],
+            "cell reference": "L182",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: System #2: Pipe Material",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Copper",
+                    "document coordinates": [
+                        235,
+                        328
+                    ]
+                },
+                {
+                    "option name": "Carbon Steel",
+                    "document coordinates": [
+                        288,
+                        328
+                    ]
+                },
+                {
+                    "option name": "PVC",
+                    "document coordinates": [
+                        363,
+                        328
+                    ]
+                },
+                {
+                    "option name": "HDPE",
+                    "document coordinates": [
+                        405,
+                        328
+                    ]
+                },
+                {
+                    "option name": "Other",
+                    "document coordinates": [
+                        456,
+                        328
+                    ]
+                }
+            ],
+            "document coordinates": [
+                235,
+                328
+            ],
+            "cell reference": "L183",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: System #2: Other Pipe Material",
+            "type": "string",
+            "document coordinates": [
+                493,
+                328
+            ],
+            "cell reference": "L188",
+            "document page": 4,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 0
+            }
+        },
+        {
+            "name": "Make Up Water Source: System #2: Return piping to pool max velocity",
+            "type": "string",
+            "document coordinates": [
+                327,
+                348
+            ],
+            "cell reference": "L189",
+            "document page": 4,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 0
+            }
+        },
+        {
+            "name": "Make Up Water Source: System #2: Supply piping to pool max velocity",
+            "type": "string",
+            "document coordinates": [
+                478,
+                348
+            ],
+            "cell reference": "L190",
+            "document page": 4,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 0
+            }
+        },
+        {
+            "name": "Make Up Water Source: System #3: System/Liquid Carried",
+            "type": "string",
+            "document coordinates": [
+                101,
+                401
+            ],
+            "cell reference": "L191",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: System #3: Pipe Material",
+            "type": "multiChoiceCheckbox",
+            "options": [
+                {
+                    "option name": "Copper",
+                    "document coordinates": [
+                        235,
+                        393
+                    ]
+                },
+                {
+                    "option name": "Carbon Steel",
+                    "document coordinates": [
+                        288,
+                        393
+                    ]
+                },
+                {
+                    "option name": "PVC",
+                    "document coordinates": [
+                        363,
+                        393
+                    ]
+                },
+                {
+                    "option name": "HDPE",
+                    "document coordinates": [
+                        405,
+                        393
+                    ]
+                },
+                {
+                    "option name": "Other",
+                    "document coordinates": [
+                        456,
+                        393
+                    ]
+                }
+            ],
+            "document coordinates": [
+                235,
+                393
+            ],
+            "cell reference": "L192",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Make Up Water Source: System #3: Other Pipe Material",
+            "type": "string",
+            "document coordinates": [
+                493,
+                393
+            ],
+            "cell reference": "L197",
+            "document page": 4,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 0
+            }
+        },
+        {
+            "name": "Make Up Water Source: System #3: Return piping to pool max velocity",
+            "type": "string",
+            "document coordinates": [
+                333,
+                413
+            ],
+            "cell reference": "L198",
+            "document page": 4,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 0
+            }
+        },
+        {
+            "name": "Make Up Water Source: System #3: Supply piping to pool max velocity",
+            "type": "string",
+            "document coordinates": [
+                484,
+                413
+            ],
+            "cell reference": "L199",
+            "document page": 4,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 0
+            }
+        },
+        {
+            "name": "Data Sheet Revision History: Version 1",
+            "type": "string",
+            "document coordinates": [
+                35,
+                513
+            ],
+            "cell reference": "L201",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Prepared by 1",
+            "type": "string",
+            "document coordinates": [
+                86,
+                513
+            ],
+            "cell reference": "L202",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Company 1",
+            "type": "string",
+            "document coordinates": [
+                227,
+                513
+            ],
+            "cell reference": "L203",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Date 1",
+            "type": "string",
+            "document coordinates": [
+                332,
+                513
+            ],
+            "cell reference": "L204",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Revision Details 1",
+            "type": "string",
+            "document coordinates": [
+                426,
+                513
+            ],
+            "cell reference": "L205",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Version 2",
+            "type": "string",
+            "document coordinates": [
+                35,
+                542
+            ],
+            "cell reference": "L206",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Prepared by 2",
+            "type": "string",
+            "document coordinates": [
+                86,
+                542
+            ],
+            "cell reference": "L207",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Company 2",
+            "type": "string",
+            "document coordinates": [
+                227,
+                542
+            ],
+            "cell reference": "L208",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Date 2",
+            "type": "string",
+            "document coordinates": [
+                332,
+                542
+            ],
+            "cell reference": "L209",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Revision Details 2",
+            "type": "string",
+            "document coordinates": [
+                426,
+                542
+            ],
+            "cell reference": "L210",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Version 3",
+            "type": "string",
+            "document coordinates": [
+                35,
+                571
+            ],
+            "cell reference": "L211",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Prepared by 3",
+            "type": "string",
+            "document coordinates": [
+                86,
+                571
+            ],
+            "cell reference": "L212",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Company 3",
+            "type": "string",
+            "document coordinates": [
+                227,
+                571
+            ],
+            "cell reference": "L213",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Date 3",
+            "type": "string",
+            "document coordinates": [
+                332,
+                571
+            ],
+            "cell reference": "L214",
+            "document page": 4,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Data Sheet Revision History: Revision Details 3",
+            "type": "string",
+            "document coordinates": [
+                426,
+                571
+            ],
+            "cell reference": "L215",
+            "document page": 4,
             "coordinate units": "points"
         }
     ]
