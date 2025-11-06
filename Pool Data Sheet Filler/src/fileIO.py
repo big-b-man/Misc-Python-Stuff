@@ -110,6 +110,9 @@ def excelListofListstoDict(sortedArray):
                     field.update({"name": row[0], "type": row[1], "options": [],
                                   "document coordinates":[row[3],row[4]],
                                   "cell reference": row[5], "document page": row[6], "coordinate units": row[7]})
+                    #add override fields if overrides exist
+                    if row[8]:
+                                field.update({"overrides":{}})
         # Checks if there are values in the field, and additional overrides to add
         if (row[8] and field):
             field["overrides"].update({row[8]: row[9]})
