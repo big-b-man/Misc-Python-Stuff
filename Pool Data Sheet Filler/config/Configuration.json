@@ -1,328 +1,120 @@
 {
     "default settings": {
-        "PDF Path": "C:/Users/benne/OneDrive/Documents/GitHub/Misc-Python-Stuff/Pool Data Sheet Filler/Pool-construction-permit-application-form.pdf",
-        "Filled PDF Path": "C:/Users/benne/GitHub/Misc-Python-Stuff/Pool Data Sheet Filler/test.pdf",
+        "PDF Path": "C:/Users/benne/GitHub/Misc-Python-Stuff/Pool Data Sheet Filler/Application for Permit (Pool Data Sheet) 1.pdf",
+        "Filled PDF Path": "C:/Users/benne/GitHub/Misc-Python-Stuff/Pool Data Sheet Filler/Filled Data Sheet.pdf",
         "Prompt For Save Path": false,
         "Spreadsheet Path": "Test Sheet.xlsx",
-        "Spreadsheet Sheet Name": "Pool Data For Export",
+        "Spreadsheet Sheet Name": "Application 1",
         "font size": 12,
         "text x offset": 6,
         "text y offset": 6,
-        "checkbox size": 8,
+        "checkbox size": 9,
         "checkbox line width": 3
     },
     "fields": [
         {
-            "name": "Application To: Health Authority",
-            "type": "multiChoiceCheckbox",
-            "options": [
-                {
-                    "option name": "Coastal",
-                    "document coordinates": [
-                        257,
-                        158
-                    ]
-                },
-                {
-                    "option name": "Fraser",
-                    "document coordinates": [
-                        41,
-                        158
-                    ]
-                },
-                {
-                    "option name": "Interior",
-                    "document coordinates": [
-                        162,
-                        158
-                    ]
-                },
-                {
-                    "option name": "Island",
-                    "document coordinates": [
-                        369,
-                        158
-                    ]
-                },
-                {
-                    "option name": "Northern",
-                    "document coordinates": [
-                        482,
-                        158
-                    ]
-                }
-            ],
+            "name": "General Pool Information: Name of Pool:",
+            "type": "string",
             "document coordinates": [
-                257,
-                158
+                34,
+                168
             ],
             "cell reference": "L2",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Application To: Name of Pool",
-            "type": "string",
-            "document coordinates": [
-                31,
-                216
-            ],
-            "cell reference": "L7",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Application To: Street Adress",
-            "type": "string",
-            "document coordinates": [
-                31,
-                245
-            ],
-            "cell reference": "L8",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Application To: Date",
-            "type": "string",
-            "document coordinates": [
-                405,
-                216
-            ],
-            "cell reference": "L9",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Contact Information: Owner or Agent Name",
-            "type": "string",
-            "document coordinates": [
-                31,
-                295
-            ],
-            "cell reference": "L11",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Contact Information: Owner or Agent Address",
-            "type": "string",
-            "document coordinates": [
-                31,
-                322
-            ],
-            "cell reference": "L12",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Contact Information: Owner or Agent Phone Number",
-            "type": "string",
-            "document coordinates": [
-                31,
-                351
-            ],
-            "cell reference": "L13",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Contact Information: Owner or Agent Email",
-            "type": "string",
-            "document coordinates": [
-                249,
-                351
-            ],
-            "cell reference": "L14",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Contact Information: Person Applying for Construction Permit Name",
-            "type": "string",
-            "document coordinates": [
-                31,
-                402
-            ],
-            "cell reference": "L16",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Contact Information: Person Applying for Construction Permit Address",
-            "type": "string",
-            "document coordinates": [
-                31,
-                429
-            ],
-            "cell reference": "L17",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Contact Information: Person Applying for Construction Permit Phone Number",
-            "type": "string",
-            "document coordinates": [
-                31,
-                458
-            ],
-            "cell reference": "L18",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Contact Information: Person Applying for Construction Permit Email",
-            "type": "string",
-            "document coordinates": [
-                249,
-                458
-            ],
-            "cell reference": "L19",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Owner's Confirmation of Commitment: Owner Name",
-            "type": "string",
-            "document coordinates": [
-                46,
-                493
-            ],
-            "cell reference": "L21",
-            "document page": 2,
+            "document page": 1,
             "coordinate units": "points",
             "overrides": {
-                "text x offset": 0,
-                "text y offset": 2
+                "text x offset": 76,
+                "text y offset": 17
             }
         },
         {
-            "name": "Owner's Confirmation of Commitment: Health Authority",
+            "name": "General Pool Information: Civic Address:",
             "type": "string",
             "document coordinates": [
-                36,
-                590
+                34,
+                199
             ],
-            "cell reference": "L23",
-            "document page": 2,
+            "cell reference": "L4",
+            "document page": 1,
             "coordinate units": "points",
             "overrides": {
-                "text x offset": 0,
-                "text y offset": 2
+                "text x offset": 76,
+                "text y offset": 17
             }
         },
         {
-            "name": "Owner's Confirmation of Commitment: Date",
-            "type": "string",
-            "document coordinates": [
-                376,
-                733
-            ],
-            "cell reference": "L25",
-            "document page": 2,
-            "coordinate units": "points"
-        },
-        {
-            "name": "General Information: Name of Pool:",
-            "type": "string",
-            "document coordinates": [
-                97,
-                152
-            ],
-            "cell reference": "L27",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 9
-            }
-        },
-        {
-            "name": "General Information: Civic Address:",
-            "type": "string",
-            "document coordinates": [
-                97,
-                178
-            ],
-            "cell reference": "L28",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 9
-            }
-        },
-        {
-            "name": "General Information: Pool Type:",
+            "name": "General Pool Information: Pool Type:",
             "type": "multiChoiceCheckbox",
             "options": [
                 {
                     "option name": "Public Pool",
                     "document coordinates": [
-                        180,
-                        193
+                        41,
+                        227
                     ]
                 },
                 {
                     "option name": "Commercial Pool",
                     "document coordinates": [
-                        282,
-                        193
+                        104,
+                        227
                     ]
                 },
                 {
                     "option name": "Hot Tub",
                     "document coordinates": [
-                        343,
-                        193
+                        191,
+                        227
                     ]
                 },
                 {
                     "option name": "Spray Pool",
                     "document coordinates": [
-                        414,
-                        193
+                        258,
+                        227
                     ]
                 },
                 {
                     "option name": "Wading Pool",
                     "document coordinates": [
-                        497,
-                        193
+                        341,
+                        227
                     ]
                 }
             ],
             "document coordinates": [
-                180,
-                193
+                41,
+                227
             ],
-            "cell reference": "L29",
-            "document page": 3,
+            "cell reference": "L6",
+            "document page": 1,
             "coordinate units": "points"
         },
         {
-            "name": "General Information: Indoor/Outdoor",
+            "name": "General Pool Information: Indoor/Outdoor",
             "type": "multiChoiceCheckbox",
             "options": [
                 {
                     "option name": "Indoor",
                     "document coordinates": [
-                        561,
-                        193
+                        453,
+                        227
                     ]
                 },
                 {
                     "option name": "Outdoor",
                     "document coordinates": [
-                        561,
-                        204
+                        506,
+                        227
                     ]
                 }
             ],
             "document coordinates": [
-                561,
-                193
+                453,
+                227
             ],
-            "cell reference": "L34",
-            "document page": 3,
+            "cell reference": "L11",
+            "document page": 1,
             "coordinate units": "points"
         },
         {
@@ -332,8 +124,8 @@
                 144,
                 253
             ],
-            "cell reference": "L37",
-            "document page": 3,
+            "cell reference": "L14",
+            "document page": 1,
             "coordinate units": "points",
             "overrides": {
                 "text y offset": 9
@@ -346,8 +138,8 @@
                 73,
                 279
             ],
-            "cell reference": "L38",
-            "document page": 3,
+            "cell reference": "L15",
+            "document page": 1,
             "coordinate units": "points",
             "overrides": {
                 "text y offset": 9
@@ -360,8 +152,8 @@
                 104,
                 306
             ],
-            "cell reference": "L39",
-            "document page": 3,
+            "cell reference": "L16",
+            "document page": 1,
             "coordinate units": "points",
             "overrides": {
                 "text y offset": 9
@@ -374,263 +166,410 @@
                 321,
                 306
             ],
-            "cell reference": "L40",
-            "document page": 3,
+            "cell reference": "L17",
+            "document page": 1,
             "coordinate units": "points",
             "overrides": {
                 "text y offset": 9
             }
         },
         {
-            "name": "Designer Information (Append additional information for multiple designers): Name",
-            "type": "string",
-            "document coordinates": [
-                64,
-                357
-            ],
-            "cell reference": "L42",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 10
-            }
-        },
-        {
-            "name": "Designer Information (Append additional information for multiple designers): Professional Designation",
-            "type": "multiChoiceCheckbox",
-            "options": [
-                {
-                    "option name": "PEng",
-                    "document coordinates": [
-                        516,
-                        343
-                    ]
-                },
-                {
-                    "option name": "Arch",
-                    "document coordinates": [
-                        516,
-                        354
-                    ]
-                }
-            ],
-            "document coordinates": [
-                516,
-                343
-            ],
-            "cell reference": "L43",
-            "document page": 3,
-            "coordinate units": "points"
-        },
-        {
-            "name": "Designer Information (Append additional information for multiple designers): Company (Legal Corporate)",
-            "type": "string",
-            "document coordinates": [
-                161,
-                383
-            ],
-            "cell reference": "L45",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 10
-            }
-        },
-        {
-            "name": "Designer Information (Append additional information for multiple designers): Address",
-            "type": "string",
-            "document coordinates": [
-                73,
-                409
-            ],
-            "cell reference": "L46",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 10
-            }
-        },
-        {
-            "name": "Designer Information (Append additional information for multiple designers): Phone Number",
-            "type": "string",
-            "document coordinates": [
-                104,
-                435
-            ],
-            "cell reference": "L47",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 10
-            }
-        },
-        {
-            "name": "Designer Information (Append additional information for multiple designers): Email",
-            "type": "string",
-            "document coordinates": [
-                321,
-                435
-            ],
-            "cell reference": "L48",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 10
-            }
-        },
-        {
-            "name": "General Pool Parameters: Pool Volume: (m^3)",
-            "type": "string",
-            "document coordinates": [
-                115,
-                491
-            ],
-            "cell reference": "L50",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
-        },
-        {
-            "name": "General Pool Parameters: Turnover: (hours)",
-            "type": "string",
-            "document coordinates": [
-                232,
-                491
-            ],
-            "cell reference": "L51",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
-        },
-        {
-            "name": "General Pool Parameters: Design Re-circulation Flow Rate: (L/sec)",
-            "type": "string",
-            "document coordinates": [
-                468,
-                491
-            ],
-            "cell reference": "L52",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
-        },
-        {
-            "name": "General Pool Parameters: Pool Area (m^2)",
-            "type": "string",
-            "document coordinates": [
-                148,
-                522
-            ],
-            "cell reference": "L53",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
-        },
-        {
-            "name": "General Pool Parameters: Deck Area (m^2)",
-            "type": "string",
-            "document coordinates": [
-                243,
-                522
-            ],
-            "cell reference": "L54",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
-        },
-        {
             "name": "General Pool Parameters: Minimum Water Depth",
             "type": "string",
             "document coordinates": [
-                420,
-                522
+                34,
+                409
             ],
-            "cell reference": "L55",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
+            "cell reference": "L19",
+            "document page": 1,
+            "coordinate units": "points"
         },
         {
             "name": "General Pool Parameters: Maximum Water Depth",
             "type": "string",
             "document coordinates": [
-                515,
-                522
+                170,
+                409
             ],
-            "cell reference": "L56",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
+            "cell reference": "L20",
+            "document page": 1,
+            "coordinate units": "points"
         },
         {
-            "name": "General Pool Parameters: Shallow Bathing Load",
+            "name": "General Pool Parameters: Pool Area (m^2)",
             "type": "string",
             "document coordinates": [
-                163,
-                552
+                305,
+                409
             ],
-            "cell reference": "L57",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
+            "cell reference": "L21",
+            "document page": 1,
+            "coordinate units": "points"
         },
         {
-            "name": "General Pool Parameters: Deep Bathing Load",
+            "name": "General Pool Parameters: Deck Area (m^2)",
             "type": "string",
             "document coordinates": [
-                315,
-                552
+                447,
+                409
             ],
-            "cell reference": "L58",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
+            "cell reference": "L22",
+            "document page": 1,
+            "coordinate units": "points"
         },
         {
-            "name": "General Pool Parameters: Total Bathing Load",
+            "name": "General Pool Parameters: Pool Volume: (m^3)",
             "type": "string",
             "document coordinates": [
-                469,
-                552
+                34,
+                440
             ],
-            "cell reference": "L59",
-            "document page": 3,
-            "coordinate units": "points",
-            "overrides": {
-                "text y offset": 11
-            }
+            "cell reference": "L23",
+            "document page": 1,
+            "coordinate units": "points"
         },
         {
             "name": "General Pool Parameters: Pool Basin Color",
             "type": "string",
             "document coordinates": [
-                157,
-                582
+                170,
+                440
             ],
-            "cell reference": "L60",
-            "document page": 3,
+            "cell reference": "L24",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "General Pool Parameters: Design Re-circulation Flow Rate: (L/sec)",
+            "type": "string",
+            "document coordinates": [
+                305,
+                440
+            ],
+            "cell reference": "L25",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "General Pool Parameters: Turnover: (hours)",
+            "type": "string",
+            "document coordinates": [
+                447,
+                440
+            ],
+            "cell reference": "L26",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "General Pool Parameters: Shallow Bathing Load",
+            "type": "string",
+            "document coordinates": [
+                76,
+                475
+            ],
+            "cell reference": "L27",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "General Pool Parameters: Deep Bathing Load",
+            "type": "string",
+            "document coordinates": [
+                228,
+                475
+            ],
+            "cell reference": "L28",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "General Pool Parameters: Total Bathing Load",
+            "type": "string",
+            "document coordinates": [
+                378,
+                475
+            ],
+            "cell reference": "L29",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Recirculation Pump Make",
+            "type": "string",
+            "document coordinates": [
+                209,
+                535
+            ],
+            "cell reference": "L31",
+            "document page": 1,
             "coordinate units": "points",
             "overrides": {
-                "text y offset": 11
+                "text y offset": 21
             }
+        },
+        {
+            "name": "Recirculation Pumps: Recirculation Pump Model",
+            "type": "string",
+            "document coordinates": [
+                209,
+                535
+            ],
+            "cell reference": "L32",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Recirculation Pump Flow",
+            "type": "string",
+            "document coordinates": [
+                447,
+                535
+            ],
+            "cell reference": "L33",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Recirculation Pump Head",
+            "type": "string",
+            "document coordinates": [
+                488,
+                535
+            ],
+            "cell reference": "L34",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Hot Tub Jet Pump Make",
+            "type": "string",
+            "document coordinates": [
+                209,
+                566
+            ],
+            "cell reference": "L35",
+            "document page": 1,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 21
+            }
+        },
+        {
+            "name": "Recirculation Pumps: Hot Tub Jet Pump Model",
+            "type": "string",
+            "document coordinates": [
+                209,
+                566
+            ],
+            "cell reference": "L36",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Hot Tub Jet Pump Flow",
+            "type": "string",
+            "document coordinates": [
+                447,
+                566
+            ],
+            "cell reference": "L37",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Hot Tub Jet Pump Head",
+            "type": "string",
+            "document coordinates": [
+                488,
+                566
+            ],
+            "cell reference": "L38",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 1 Name",
+            "type": "string",
+            "document coordinates": [
+                41,
+                597
+            ],
+            "cell reference": "L39",
+            "document page": 1,
+            "coordinate units": "points",
+            "overrides": {
+                "text x offset": 0
+            }
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 1 Make",
+            "type": "string",
+            "document coordinates": [
+                209,
+                597
+            ],
+            "cell reference": "L40",
+            "document page": 1,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 21
+            }
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 1 Model",
+            "type": "string",
+            "document coordinates": [
+                209,
+                597
+            ],
+            "cell reference": "L41",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 1 Flow",
+            "type": "string",
+            "document coordinates": [
+                447,
+                597
+            ],
+            "cell reference": "L42",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 1 Head",
+            "type": "string",
+            "document coordinates": [
+                488,
+                597
+            ],
+            "cell reference": "L43",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 2 Name",
+            "type": "string",
+            "document coordinates": [
+                41,
+                627
+            ],
+            "cell reference": "L44",
+            "document page": 1,
+            "coordinate units": "points",
+            "overrides": {
+                "text x offset": 0
+            }
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 2 Make",
+            "type": "string",
+            "document coordinates": [
+                209,
+                627
+            ],
+            "cell reference": "L45",
+            "document page": 1,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 21
+            }
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 2 Model",
+            "type": "string",
+            "document coordinates": [
+                209,
+                627
+            ],
+            "cell reference": "L46",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 2 Flow",
+            "type": "string",
+            "document coordinates": [
+                447,
+                627
+            ],
+            "cell reference": "L47",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 2 Head",
+            "type": "string",
+            "document coordinates": [
+                488,
+                627
+            ],
+            "cell reference": "L48",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 3 Name",
+            "type": "string",
+            "document coordinates": [
+                41,
+                657
+            ],
+            "cell reference": "L49",
+            "document page": 1,
+            "coordinate units": "points",
+            "overrides": {
+                "text x offset": 0
+            }
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 3 Make",
+            "type": "string",
+            "document coordinates": [
+                209,
+                657
+            ],
+            "cell reference": "L50",
+            "document page": 1,
+            "coordinate units": "points",
+            "overrides": {
+                "text y offset": 21
+            }
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 3 Model",
+            "type": "string",
+            "document coordinates": [
+                209,
+                657
+            ],
+            "cell reference": "L51",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 3 Flow",
+            "type": "string",
+            "document coordinates": [
+                447,
+                657
+            ],
+            "cell reference": "L52",
+            "document page": 1,
+            "coordinate units": "points"
+        },
+        {
+            "name": "Recirculation Pumps: Extra Pump 3 Head",
+            "type": "string",
+            "document coordinates": [
+                488,
+                657
+            ],
+            "cell reference": "L53",
+            "document page": 1,
+            "coordinate units": "points"
         },
         {
             "name": "General Pool Parameters: Complies with Pool Regulations",
@@ -655,7 +594,7 @@
                 444,
                 568
             ],
-            "cell reference": "L61",
+            "cell reference": "L56",
             "document page": 3,
             "coordinate units": "points"
         },
@@ -703,7 +642,7 @@
                 154,
                 597
             ],
-            "cell reference": "L63",
+            "cell reference": "L58",
             "document page": 3,
             "coordinate units": "points"
         },
@@ -730,7 +669,7 @@
                 537,
                 597
             ],
-            "cell reference": "L68",
+            "cell reference": "L63",
             "document page": 3,
             "coordinate units": "points"
         }
