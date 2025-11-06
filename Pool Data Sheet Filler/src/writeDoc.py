@@ -97,7 +97,7 @@ def selectMultiChoiceCheckBox(doc,excelData,field):
 
 #checks if the field being inserted is on a valid document page
 def checkIfPageExists(doc,field):
-    if field["document page"] >= len(doc):
+    if field["document page"] > len(doc):
        return
     if field["document page"] <= 0:
         return
